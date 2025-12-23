@@ -4,6 +4,7 @@ import React from "react";
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
 import Link from "next/link";
+
 import {
   Card,
   CardContent,
@@ -12,6 +13,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+
 import {
   Drawer,
   DrawerContent,
@@ -22,7 +24,9 @@ import {
   DrawerTrigger,
   DrawerClose,
 } from "@/components/ui/drawer";
+
 import {
+
   Home,
   Sparkles,
   Truck,
@@ -33,7 +37,8 @@ import {
   CheckCircle,
   Check,
   X,
-  Calendar
+  Calendar,
+
 } from "lucide-react";
 
 export default function Services() {
@@ -46,6 +51,7 @@ export default function Services() {
       longDescription:
         "For busy families, professionals, and anyone who wants a consistently clean home without the hassle. We create a healthy environment for you to relax in.",
       icon: Home,
+      iconUrl: "https://cdn-icons-png.freepik.com/512/4326/4326454.png?uid=R222621354&ga=GA1.1.1923233215.1763239242",
       image:
         "https://plus.unsplash.com/premium_photo-1679920025550-75324e59680f?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       url: "/contact",
@@ -65,6 +71,7 @@ export default function Services() {
       longDescription:
         "Perfect for spring cleaning, before guests arrive, or when your space needs extra attention. We go beyond the surface to remove hidden dust and grime.",
       icon: Sparkles,
+      iconUrl: "https://cdn-icons-png.freepik.com/512/738/738981.png?uid=R222621354&ga=GA1.1.1923233215.1763239242",
       image:
         "https://5.imimg.com/data5/IY/VT/WG/SELLER-92734525/bathroom-cleaning-1000x1000.jpg",
       url: "/contact",
@@ -84,6 +91,7 @@ export default function Services() {
       longDescription:
         "Ideal for landlords, tenants, and homeowners. Whether you want your deposit back or a fresh start in a new home, we leave the place spotless.",
       icon: Truck,
+      iconUrl : "https://cdn-icons-png.freepik.com/512/3344/3344051.png?uid=R222621354&ga=GA1.1.1923233215.1763239242",
       image:
         "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?q=80&w=1000&auto=format&fit=crop",
       url: "/contact",
@@ -102,6 +110,7 @@ export default function Services() {
       longDescription:
         "Keep your workplace clean, professional, and welcoming. A clean office boosts productivity and leaves a great first impression on clients.",
       icon: Building2,
+      iconUrl:"https://cdn-icons-png.freepik.com/512/14361/14361415.png?uid=R222621354&ga=GA1.1.1923233215.1763239242",
       image:
         "https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=1000&auto=format&fit=crop",
       url: "/contact",
@@ -119,6 +128,7 @@ export default function Services() {
       longDescription:
         "Quick, reliable turnovers between guests. We understand the tight schedules of short-term rentals and ensure 5-star cleanliness every time.",
       icon: BedDouble,
+      iconUrl:"https://cdn-icons-png.freepik.com/512/3343/3343865.png?uid=R222621354&ga=GA1.1.1923233215.1763239242",
       image:
         "https://cdn.prod.website-files.com/66eae7c3f6bec634152a5d82/66fdad7178925f4d926262f9_Cleaning%20Company%20(2).webp",
       url: "/contact",
@@ -136,6 +146,7 @@ export default function Services() {
       longDescription:
         "Construction is messy. We handle the fine dust and debris left behind by contractors so you can move your furniture in immediately.",
       icon: Hammer,
+      iconUrl:"https://cdn-icons-png.freepik.com/512/1999/1999178.png?uid=R222621354&ga=GA1.1.1923233215.1763239242",
       image:
         "https://reallycleanservices.com/wp-content/uploads/2025/02/diploma-1.webp",
       url: "/contact",
@@ -152,6 +163,7 @@ export default function Services() {
       longDescription:
         "Beyond standard cleaning, we assist with seasonal transitions, real estate preparation, and organizing cluttered spaces like garages and closets.",
       icon: Calendar, // You may need to import this icon or choose another
+      iconUrl:"https://cdn-icons-png.freepik.com/512/12627/12627318.png?uid=R222621354&ga=GA1.1.1923233215.1763239242",
       image: "https://officepride.com/wp-content/uploads/2021/11/OP1014-Office-Pride-Blog_10Oct2021-Micro.jpg", // Replace with your specific image
       url: "/contact",
       includes: [
@@ -168,6 +180,7 @@ export default function Services() {
       longDescription:
         "Revitalize your flooring with our deep cleaning methods designed to handle odors, tough stains, and general wear and tear on carpets.",
       icon: Sparkles, // You may need to import this icon or choose another
+      iconUrl:"https://cdn-icons-png.freepik.com/512/8948/8948933.png?uid=R222621354&ga=GA1.1.1923233215.1763239242",
       image: "https://img.freepik.com/premium-photo/carpet-cleaning-vacuum-cleaner_266247-56.jpg?semt=ais_hybrid&w=740&q=80", // Replace with your specific image
       url: "/contact",
       includes: [
@@ -234,9 +247,18 @@ export default function Services() {
 
                   {/* Floating Icon */}
                   <div className="absolute bottom-4 left-4 flex items-center gap-3">
-                    <div className="h-12 w-12 bg-primary text-primary-foreground rounded-xl flex items-center justify-center shadow-lg transform group-hover:rotate-6 transition-transform duration-300">
+                    {/* <div className="h-12 w-12 bg-primary text-primary-foreground rounded-xl flex items-center justify-center shadow-lg transform group-hover:rotate-6 transition-transform duration-300">
                       <Icon className="h-6 w-6" />
+                    </div> */}
+
+                     <div className="h-14 w-14 bg-primary rounded-xl flex items-center justify-center shadow-lg transform group-hover:rotate-6 transition-transform duration-300 p-2">
+                      <img 
+                        src={service.iconUrl} 
+                        alt="" 
+                        className="w-full h-full object-contain"
+                      />
                     </div>
+
                     <h3 className="text-xl font-bold text-white leading-tight">
                       {service.title}
                     </h3>
@@ -269,9 +291,17 @@ export default function Services() {
                         <DrawerHeader className="text-left border-b border-border/10 pb-4 shrink-0">
                           <div className="flex items-center justify-between">
                             <div className="flex items-center gap-3">
+
                               <div className="h-10 w-10 bg-primary/10 rounded-full flex items-center justify-center text-primary">
-                                <Icon className="h-5 w-5" />
+                                {/* <Icon className="h-5 w-5" /> */}
+                                  <img 
+                        src={service.iconUrl} 
+                        alt="" 
+                        className="w-full h-full object-contain"
+                      />
                               </div>
+
+
                               <DrawerTitle className="text-2xl font-bold">
                                 {service.title}
                               </DrawerTitle>

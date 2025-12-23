@@ -25,6 +25,7 @@ export default function Pricing() {
       period: "starting from",
       description: "Transparent Pricing, No Surprises.",
       icon: Building2,
+      iconUrl:"https://cdn-icons-png.freepik.com/512/1999/1999177.png?uid=R222621354&ga=GA1.1.1923233215.1763239242",
       features: [
         "From $119 for a standard clean",
         "From $199 for a deep clean",
@@ -38,6 +39,7 @@ export default function Pricing() {
       period: "starting from",
       description: "Comprehensive care for your entire home.",
       icon: Home,
+       iconUrl: "https://cdn-icons-png.freepik.com/512/4326/4326454.png?uid=R222621354&ga=GA1.1.1923233215.1763239242",
       features: [
         "From $169 for a standard clean",
         "From $299 for a deep clean",
@@ -51,6 +53,7 @@ export default function Pricing() {
       period: "starting from",
       description: "Price depends on size and condition.",
       icon: Box,
+        iconUrl : "https://cdn-icons-png.freepik.com/512/3344/3344051.png?uid=R222621354&ga=GA1.1.1923233215.1763239242",
       features: [
         "Dependent on property size",
         "Dependent on condition",
@@ -65,6 +68,7 @@ export default function Pricing() {
       period: "quote",
       description: "Custom quotes based on square footage and frequency.",
       icon: Briefcase,
+       iconUrl:"https://cdn-icons-png.freepik.com/512/14361/14361415.png?uid=R222621354&ga=GA1.1.1923233215.1763239242",
       features: [
         "Based on square footage",
         "Based on cleaning frequency",
@@ -79,6 +83,7 @@ export default function Pricing() {
       period: "or per-clean",
       description: "Pricing based on unit size and laundry needs.",
       icon: Sparkles,
+       iconUrl:"https://cdn-icons-png.freepik.com/512/3343/3343865.png?uid=R222621354&ga=GA1.1.1923233215.1763239242",
       features: [
         "Flat-rate pricing available",
         "Per-clean pricing options",
@@ -168,7 +173,12 @@ export default function Pricing() {
                 {/* Icon Header */}
                 <div className="flex justify-between items-start mb-6">
                   <div className="p-3 rounded-xl bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-colors duration-300">
-                    <pkg.icon size={28} />
+                    {/* <pkg.icon size={28} /> */}
+                       <img 
+                        src={pkg.iconUrl} 
+                        alt="" 
+                        className="w-8 object-contain"
+                      />
                   </div>
                   <div className="text-right">
                     <p className="text-sm font-medium text-foreground/50">{pkg.type}</p>

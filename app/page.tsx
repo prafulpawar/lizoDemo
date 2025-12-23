@@ -28,7 +28,7 @@ export default function Home() {
         "Move-in cleaning",
         "Move-out cleaning",
       ],
-      icon: "🏠",
+       iconUrl: "https://cdn-icons-png.freepik.com/512/4326/4326454.png?uid=R222621354&ga=GA1.1.1923233215.1763239242",
     },
     {
       title: "Commercial & Office Cleaning",
@@ -37,7 +37,7 @@ export default function Home() {
         "Small business cleaning",
         "After-hours cleaning",
       ],
-      icon: "🏢",
+      iconUrl:"https://cdn-icons-png.freepik.com/512/14361/14361415.png?uid=R222621354&ga=GA1.1.1923233215.1763239242",
     },
     {
       title: "Airbnb / Short-Term Rental Turnovers",
@@ -46,7 +46,7 @@ export default function Home() {
         "Bed making and restocking",
         "Same-day turnovers",
       ],
-      icon: "🛏️",
+      iconUrl:"https://cdn-icons-png.freepik.com/512/3343/3343865.png?uid=R222621354&ga=GA1.1.1923233215.1763239242",
     },
     {
       title: "Post-Renovation Cleaning",
@@ -55,7 +55,7 @@ export default function Home() {
         "Surface wipe-down",
         "Floor and window detailing",
       ],
-      icon: "🏗️",
+      iconUrl:"https://cdn-icons-png.freepik.com/512/1999/1999178.png?uid=R222621354&ga=GA1.1.1923233215.1763239242",
     },
     {
       title: "Seasonal & Specialty Services",
@@ -65,7 +65,7 @@ export default function Home() {
         "Closet organizing & decluttering",
         "Garage organizing & clean-up",
       ],
-      icon: "🌟",
+      iconUrl:"https://cdn-icons-png.freepik.com/512/12627/12627318.png?uid=R222621354&ga=GA1.1.1923233215.1763239242",
     },
     {
       title: "Carpet Cleaning",
@@ -75,7 +75,7 @@ export default function Home() {
         "Odor removal",
         "Area rug cleaning",
       ],
-      icon: "🧼",
+           iconUrl:"https://cdn-icons-png.freepik.com/512/8948/8948933.png?uid=R222621354&ga=GA1.1.1923233215.1763239242",
     },
   ];
 
@@ -476,7 +476,11 @@ export default function Home() {
                 key={index}
                 className="group p-8 rounded-xl border border-border bg-card hover:border-primary/40 hover:shadow-lg transition-all hover:-translate-y-1"
               >
-                <div className="text-5xl mb-4">{service.icon}</div>
+                <div className="text-5xl mb-4">{ <img 
+                        src={service.iconUrl} 
+                        alt="" 
+                        className="w-14 object-contain"
+                      />}</div>
                 <h3 className="font-bold text-xl mb-3 text-foreground group-hover:text-primary transition-colors">
                   {service.title}
                 </h3>
