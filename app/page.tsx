@@ -8,6 +8,10 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useState, useEffect } from "react"
 import Image from "next/image"
 
+
+import { InteractiveHoverButton } from "@/components/ui/interactive-hover-button"
+import { Hero as AnimatedHero } from "@/components/ui/animated-hero"
+
 export default function Home() {
   const [isLoaded, setIsLoaded] = useState(false)
 
@@ -176,7 +180,9 @@ export default function Home() {
   const [isTablet, setIsTablet] = useState(false);
   useEffect(() => {
     const checkTablet = () => {
-      setIsTablet(window.innerWidth >= 768 && window.innerWidth < 1024);
+      // Treat most tablets (portrait + landscape) as "tablet" layout
+      // Roughly Tailwind sm-lg: from ~small tablets up to small laptops
+      setIsTablet(window.innerWidth >= 640 && window.innerWidth < 1200);
     };
     checkTablet();
     window.addEventListener('resize', checkTablet);
@@ -194,37 +200,47 @@ export default function Home() {
           <div className="absolute inset-0 z-0" style={{ backgroundImage: "linear-gradient(135deg, rgba(60, 100, 180, 0.08) 0%, rgba(60, 100, 180, 0.04) 100%)" }} />
           <div className="max-w-2xl mx-auto relative z-10 flex flex-col h-full flex-1">
             <div className="flex flex-col flex-1">
-              <h1 className="text-5xl font-bold text-foreground mb-2 mt-4">Lizzo Cleaning</h1>
-              <h2 className="text-3xl font-medium text-primary mb-2">Sparkling Spaces. Zero Stress.</h2>
-              <p className="text-3xl text-foreground/70 mb-4 leading-relaxed max-w-lg">Lizzo Cleaning is your trusted local cleaning service for homes, offices, and rentals. We show up on time, pay attention to the details, and leave every space fresh, organized, and guest-ready.</p>
-              <ul className="space-y-2 mb-6">
-                <li className="flex items-center gap-3"><Check size={20} className="text-primary flex-shrink-0" /><span className="text-2xl font-medium text-foreground">Trained, trusted cleaners</span></li>
-                <li className="flex items-center gap-3"><Check size={20} className="text-primary flex-shrink-0" /><span className="text-2xl font-medium text-foreground">Flexible scheduling</span></li>
-                <li className="flex items-center gap-3"><Check size={20} className="text-primary flex-shrink-0" /><span className="text-2xl font-medium text-foreground">Transparent pricing</span></li>
-              </ul>
-              <div className="flex flex-row gap-4 mt-6">
-                <Link href="/contact" className="w-1/2 px-8 py-3.5 bg-primary text-white rounded-lg hover:bg-primary/90 transition-all hover:shadow-lg font-semibold inline-flex items-center justify-center gap-2">Book Your Cleaning <ArrowRight size={20} /></Link>
-              </div>
-              <div className="flex flex-row gap-4 mt-6 mb-4 ">
-                <a href="tel:+1 (613) 854-7507" className="w-1/2 px-8 py-3.5 border-2 border-foreground text-foreground rounded-lg hover:bg-foreground/5 transition-all font-semibold inline-flex items-center justify-center gap-2">Call Now</a>
+              <AnimatedHero />
+
+              <div className="mt-2 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
+                <InteractiveHoverButton
+                  text="Get a Free Quote"
+                  onClick={() => {
+                    window.location.href = "/contact";
+                  }}
+                />
+                <a
+                  href="/contact"
+                  className="px-4 py-2.5 border border-foreground text-foreground rounded-lg hover:bg-foreground/5 transition-all inline-flex items-center justify-center gap-2"
+                >
+                  Tell Us Your Cleaning Needs
+                </a>
               </div>
             </div>
+
             {/* Stats Section for tablet at bottom */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-auto mb-8 flex-shrink-0">
               {stats.map((stat, index) => {
                 const Icon = stat.icon;
                 return (
-                  <div key={index} className="text-center">
-                    <div className="flex justify-center mb-4">
-                      <Icon size={32} className="text-primary" />
+                  <motion.div
+                    key={index}
+                    className="text-center"
+                    initial={{ opacity: 0, y: 10 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.4, delay: index * 0.1 }}
+                  >
+                    <div className="flex justify-center mb-3">
+                      <Icon size={28} className="text-primary" />
                     </div>
-                    <div className="text-4xl font-bold text-primary mb-2">
+                    <div className="text-3xl md:text-4xl font-bold text-primary mb-1">
                       {stat.number}
                     </div>
-                    <div className="text-foreground/70 font-medium">
+                    <div className="text-sm md:text-base text-foreground/70 font-medium">
                       {stat.label}
                     </div>
-                  </div>
+                  </motion.div>
                 );
               })}
             </div>
@@ -234,203 +250,139 @@ export default function Home() {
 
       {/* Default Hero (mobile/desktop) */}
       {!isTablet && (
-        <section
-          style={{ minHeight: 'calc(var(--app-vh, 100vh))' }}
-          className={`pt-24 pb-0 px-4 sm:px-6 lg:px-8 relative flex flex-col transition-all duration-1000 ${isLoaded ? "opacity-100" : "opacity-0"}`}
-        >
-          <div
-            className="absolute inset-0 z-0"
-            style={{
-              backgroundImage:
-                "linear-gradient(135deg, rgba(60, 100, 180, 0.08) 0%, rgba(60, 100, 180, 0.04) 100%)",
-            }}
-          />
+      <section
+         style={{ minHeight: 'calc(var(--app-vh, 100vh))' }}
+        className={`pt-12 sm:pt-10 pb-0 px-4 sm:px-6 lg:px-8 relative flex flex-col transition-all duration-1000 ${isLoaded ? "opacity-100" : "opacity-0"}`}
+       >
+        <div
+          className="absolute inset-0 z-0"
+          style={{
+            backgroundImage:
+              "linear-gradient(135deg, rgba(60, 100, 180, 0.08) 0%, rgba(60, 100, 180, 0.04) 100%)",
+          }}
+        />
 
-          <div className="max-w-7xl mx-auto relative z-10 flex-1 flex flex-col h-full justify-between">
-            {/* Desktop / Tablet hero */}
-            <div className="flex flex-col flex-1 sm:grid sm:grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-              <div className="animate-slide-in-left flex flex-col flex-1 pb-4 sm:pb-0">
+        <div className="max-w-7xl mx-auto relative z-10 flex-1 flex flex-col h-full justify-start sm:justify-between">
+          {/* Desktop / Tablet hero */}
+          <div className="flex flex-col flex-1 sm:grid sm:grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div className="animate-slide-in-left flex flex-col flex-1 pb-4 sm:pb-0 sm:justify-center">
 
-                {/* 1. Main Heading */}
-                <h1
-                  className="
-            text-4xl
-            sm:text-4xl
-            md:text-7xl
-            lg:text-4xl
-            font-bold
-            text-foreground
-          "
+              <AnimatedHero />
+
+              <div className="hidden sm:flex sm:flex-row items-center gap-4 sm:justify-center">
+                <InteractiveHoverButton
+                  text="Get a Free Quote"
+                  className="px-5 py-3 w-44"
+                  onClick={() => {
+                    window.location.href = "/contact";
+                  }}
+                />
+                <a
+                  href="/contact"
+                  className="px-8 py-2.5 border border-foreground text-foreground rounded-lg hover:bg-foreground/5 transition-all font-semibold inline-flex items-center justify-center gap-2"
                 >
-                  Lizzo Cleaning
-                </h1>
-
-                {/* 2. Slogan */}
-                <h2
-                  className="
-            text-md
-            sm:text-xl
-            md:text-4xl
-            lg:text-xl
-            font-medium
-            text-primary
-            mb-4
-          "
-                >
-                  Sparkling Spaces. Zero Stress.
-                </h2>
-
-                {/* 3. Paragraph */}
-                <p
-                  className="
-            text-xl
-            sm:text-2xl
-            md:text-4xl
-            lg:text-sm
-            text-foreground/70
-            mb-5
-            leading-relaxed
-            max-w-lg
-          "
-                >
-                  Lizzo Cleaning is your trusted local cleaning service for homes, offices,
-                  and rentals. We show up on time, pay attention to the details, and leave
-                  every space fresh, organized, and guest-ready.
-                </p>
-
-                {/* 4. Checklist */}
-                <ul
-                  className="
-            space-y-3
-            mb-2
-            md:mb-6
-            xl:mb-9
-            2xl:mb-2
-          "
-                >
-                  <li className="flex items-center gap-3">
-                    <Check size={20} className="text-primary flex-shrink-0" />
-                    <span
-                      className="
-                text-lg
-                sm:text-xl
-                md:text-2xl
-                lg:text-lg
-                font-medium
-                text-foreground
-              "
-                    >
-                      Trained, trusted cleaners
-                    </span>
-                  </li>
-
-                  <li className="flex items-center gap-3">
-                    <Check size={20} className="text-primary flex-shrink-0" />
-                    <span
-                      className="
-                text-lg
-                sm:text-xl
-                md:text-2xl
-                lg:text-lg
-                font-medium
-                text-foreground
-              "
-                    >
-                      Flexible scheduling
-                    </span>
-                  </li>
-
-                  <li className="flex items-center gap-3">
-                    <Check size={20} className="text-primary flex-shrink-0" />
-                    <span
-                      className="
-                text-lg
-                sm:text-xl
-                md:text-2xl
-                lg:text-lg
-                font-medium
-                text-foreground
-              "
-                    >
-                      Transparent pricing
-                    </span>
-                  </li>
-                </ul>
-
-                {/* 5. Buttons */}
-                <div
-                  className="
-            flex flex-col
-            sm:flex-row
-            gap-4
-            mt-auto
-            sm:mt-16
-            md:mt-2
-            lg:mt-0
-            mb-2
-          "
-                >
-                  <Link
-                    href="/contact"
-                    className="px-8 py-3.5 bg-primary text-white rounded-lg hover:bg-primary/90 transition-all hover:shadow-lg font-semibold inline-flex items-center justify-center gap-2"
-                  >
-                    Book Your Cleaning <ArrowRight size={20} />
-                  </Link>
-
-                  <a
-                    href="tel:+1 (613) 854-7507"
-                    className="px-8 py-3.5 border-2 border-foreground text-foreground rounded-lg hover:bg-foreground/5 transition-all font-semibold inline-flex items-center justify-center gap-2"
-                  >
-                    Call Now
-                  </a>
-                </div>
-              </div>
-
-              {/* Right Side Image */}
-              <div className="animate-slide-in-right hidden lg:block">
-                <div className="relative">
-                  <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-primary/10 rounded-3xl blur-3xl" />
-                  <img
-                    src="/professional-cleaning-service-modern-clean.jpg"
-                    alt="Professional cleaning team working"
-                    className="relative rounded-2xl lg:w-[40%] xl:w-[45%] object-cover shadow-2xl ml-40"
-                  />
-                </div>
+                  Tell Us Your Cleaning Needs
+                </a>
               </div>
             </div>
 
-            {/* Stats Secn */}
-            <section
-              className="
+            {/* Right Side Image + Desktop Stats */}
+            <div className="animate-slide-in-right hidden lg:flex lg:flex-col lg:items-center">
+              <div className="relative">
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-primary/10 rounded-3xl blur-3xl" />
+                <img
+                  src="/professional-cleaning-service-modern-clean.jpg"
+                  alt="Professional cleaning team working"
+                  className="relative rounded-2xl lg:w-[40%] xl:w-[45%] object-cover shadow-2xl ml-40"
+                />
+              </div>
+
+              {/* Desktop-only compact stats under image */}
+              <div className="mt-6 grid grid-cols-3 gap-5 max-w-lg w-full">
+                {stats.map((stat, index) => {
+                  const Icon = stat.icon;
+                  return (
+                    <motion.div
+                      key={index}
+                      className="bg-white/80 backdrop-blur-sm rounded-xl px-5 py-4 shadow-sm border border-primary/10 flex flex-col items-center text-center"
+                      initial={{ opacity: 0, y: 8 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      whileHover={{ y: -6, scale: 1.04 }}
+                      whileTap={{ scale: 0.97 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.35, delay: index * 0.08 }}
+                    >
+
+                      <Icon size={22} className="text-primary mb-1" />
+                      <div className="text-xl font-semibold text-primary leading-none">
+                        {stat.number}
+                      </div>
+                      <div className="mt-1 text-sm text-foreground/70">
+                        {stat.label}
+                      </div>
+                    </motion.div>
+                  );
+                })}
+              </div>
+            </div>
+          </div>
+
+          {/* Mobile-only CTA */}
+          <div className="flex flex-col items-center gap-5 -mt-1 mb-6 sm:hidden">
+            <InteractiveHoverButton
+              text="Get a Free Quote"
+              className="px-5 py-3 w-44 -mt-4"
+              onClick={() => {
+                window.location.href = "/contact";
+              }}
+            />
+            <a
+              href="/contact"
+              className="px-8 py-2.5 border border-foreground text-foreground rounded-lg hover:bg-foreground/5 transition-all font-semibold inline-flex items-center justify-center gap-2"
+            >
+              Tell Us Your Cleaning Needs
+            </a>
+          </div>
+
+          {/* Stats Secn */}
+          <section
+            className="
       mt-16
       sm:mt-28
       md:mt-6
       lg:mt-2
-      2xl:mt-6
-      hidden sm:block
+      2xl:mt-2
+      hidden sm:block lg:hidden
     "
-            >
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                {stats.map((stat, index) => {
-                  const Icon = stat.icon
-                  return (
-                    <div key={index} className="text-center">
-                      <div className="flex justify-center mb-4">
-                        <Icon size={32} className="text-primary" />
-                      </div>
-                      <div className="text-4xl font-bold text-primary mb-2">
-                        {stat.number}
-                      </div>
-                      <div className="text-foreground/70 font-medium">
-                        {stat.label}
-                      </div>
+          >
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {stats.map((stat, index) => {
+                const Icon = stat.icon
+                return (
+                  <motion.div
+                    key={index}
+                    className="text-center"
+                    initial={{ opacity: 0, y: 10 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.4, delay: index * 0.1 }}
+                  >
+                    <div className="flex justify-center mb-3">
+                      <Icon size={22} className="text-primary" />
                     </div>
-                  )
-                })}
-              </div>
-            </section>
-          </div>
-        </section>
+                    <div className="text-3xl md:text-3xl font-bold text-primary">
+                      {stat.number}
+                    </div>
+                    <div className="text-sm md:text-base text-foreground/70 font-medium">
+                      {stat.label}
+                    </div>
+                  </motion.div>
+                )
+              })}
+            </div>
+          </section>
+        </div>
+      </section>
       )}
 
       {/* How It Works - Scroll animated cards */}
