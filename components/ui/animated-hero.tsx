@@ -57,13 +57,7 @@ function Hero() {
             </h1>
 
             <p className="mt-2 md:mt-0 text-xl md:text-xl max-[380px]:text-lg max-[340px]:text-base leading-relaxed tracking-tight text-muted-foreground max-w-2xl text-center">
-              We’re a local team passionate about turning your space into a calm, fresh-feeling place to live and work.Warm, reliable cleaning from a local team who treats your space like their own. Busy family mornings,
-              last-minute guests, or just some peace of mind &mdash; we&apos;re here to help. Whether it’s your family home, your office, or a rental turnover, our team shows up with care,
-                consistency, and a smile.
-              {/* <span className="block md:hidden mt-2">
-                Whether it’s your family home, your office, or a rental turnover, our team shows up with care,
-                consistency, and a smile.
-              </span> */}
+                          Welcome to <span className="text-primary font-semibold">Lizzo Cleaning</span>. Where every space feels like home. We’re a local team passionate about turning your space into a calm, fresh-feeling place to live and work. Warm, reliable cleaning from a local team who treats your space like their own. Busy family mornings, last-minute guests, or just some peace of mind we’re here to help. 
             </p>
           </div>
         </div>

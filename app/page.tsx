@@ -19,55 +19,71 @@ export default function Home() {
   const [currentSlide, setCurrentSlide] = useState(0);
 
   // --- SLIDER DATA (7 Pairs) ---
-  const transformations = [
-    {
-      id: 1,
-      label: "Kitchen Deep Clean",
-      desc: "Grease removal and surface polishing.",
-      before: "/Before1.jpeg",
-      after: "/After1.jpeg"
-    },
+const transformations = [
+   
     {
       id: 2,
-      label: "Bathroom Restoration",
-      desc: "Grout scrubbing and fixture shining.",
+      // Image: Dining room with furniture wrapped in plastic
+      // Reason: Wrapped furniture clearly indicates moving
+      label: "Move-In / Move-Out Cleaning",
+      desc: "Ensure the property is pristine for the next chapter.",
       before: "/Before2.jpeg",
       after: "/After2.jpeg"
     },
     {
       id: 3,
-      label: "Living Room Refresh",
-      desc: "Dusting, vacuuming and organizing.",
+      // Image: Basement with Christmas tree and toys
+      // Reason: Shows a "busy family" home environment
+      label: "Residential Cleaning",
+      desc: "Consistent cleanliness for busy families and professionals.",
       before: "/Before3.jpeg",
       after: "/After3.jpeg"
     },
     {
       id: 4,
-      label: "Bedroom Makeover",
-      desc: "Bed making and detailed dusting.",
+      // Image: Bathroom/Bathtub
+      // Reason: Bathrooms require detailed attention/scrubbing
+      label: "Deep Cleaning",
+      desc: "Detailed attention for spring cleaning or special occasions.",
       before: "/Before4.jpeg",
       after: "/After4.jpeg"
     },
     {
       id: 5,
-      label: "Office Deep Clean",
-      desc: "Sanitizing workstations and floor care.",
+      // Image: Kitchen
+      // Reason: A clean kitchen is essential for rentals/turnovers
+      label: "Airbnb & Rental Turnover Cleaning",
+      desc: "Fast, reliable turnovers to maintain Superhost status.",
       before: "/Before5.jpeg",
       after: "/After5.jpeg"
     },
     {
       id: 6,
-      label: "Move-Out Cleaning",
-      desc: "Complete empty home restoration.",
+      // Image: Empty room with tiled floor
+      // Reason: Looks like a space cleared of construction dust/debris
+      label: "Post-Renovation",
+      desc: "Removing dust and debris so you can enjoy your new space.",
       before: "/Before6.jpeg",
       after: "/After6.jpeg"
     },
     {
       id: 7,
-      label: "Post-Renovation Detail",
-      desc: "Removing fine construction dust.",
+      // Image: Empty room with carpet
+      // Reason: Clearly shows carpet flooring
+      label: "Carpet Cleaning",
+      desc: "Deep cleaning treatments for carpets, rugs, and stains.",
       before: "/Before7.jpeg",
       after: "/After7.jpeg"
+    },
+
+     {
+      id: 1,
+      // Image: Garage & Driveway with items/junk
+      // Reason: Fits "Specialty assistance for organization/moving"
+      label: "Seasonal & Specialty Services",
+      desc: "Specialized assistance for holidays, moving, and organization.",
+      before: "/Before1.jpeg",
+      after: "/After1.jpeg"
     },
   ];
 
@@ -91,61 +107,24 @@ export default function Home() {
 
   const services = [
     {
-      title: "Residential Cleaning",
-      details: [
-        "Standard home cleaning",
-        "Deep cleaning",
-        "Move-in cleaning",
-        "Move-out cleaning",
-      ],
-      iconUrl: "https://cdn-icons-png.freepik.com/512/4326/4326454.png?uid=R222621354&ga=GA1.1.1923233215.1763239242",
+      title: "Home Cleaning",
+      emoji: "🏠",
+      description: "Regular or one-time cleaning to keep your home fresh, comfortable, and welcoming.",
     },
     {
-      title: "Commercial & Office Cleaning",
-      details: [
-        "Office cleaning",
-        "Small business cleaning",
-        "After-hours cleaning",
-      ],
-      iconUrl: "https://cdn-icons-png.freepik.com/512/14361/14361415.png?uid=R222621354&ga=GA1.1.1923233215.1763239242",
+      title: "Office Cleaning",
+      emoji: "🏢",
+      description: "A clean workspace that supports focus, productivity, and professionalism.",
     },
     {
-      title: "Airbnb / Short-Term Rental Turnovers",
-      details: [
-        "Guest-ready cleaning",
-        "Bed making and restocking",
-        "Same-day turnovers",
-      ],
-      iconUrl: "https://cdn-icons-png.freepik.com/512/3343/3343865.png?uid=R222621354&ga=GA1.1.1923233215.1763239242",
+      title: "Deep Cleaning",
+      emoji: "🧹",
+      description: "Perfect for seasonal resets, move-ins, or when your space needs extra care.",
     },
     {
-      title: "Post-Renovation Cleaning",
-      details: [
-        "Dust removal",
-        "Surface wipe-down",
-        "Floor and window detailing",
-      ],
-      iconUrl: "https://cdn-icons-png.freepik.com/512/1999/1999178.png?uid=R222621354&ga=GA1.1.1923233215.1763239242",
-    },
-    {
-      title: "Seasonal & Specialty Services",
-      details: [
-        "Christmas tree teardown & holiday clean-up",
-        "Post-home-sale cleaning (listing prep and turnover)",
-        "Closet organizing & decluttering",
-        "Garage organizing & clean-up",
-      ],
-      iconUrl: "https://cdn-icons-png.freepik.com/512/12627/12627318.png?uid=R222621354&ga=GA1.1.1923233215.1763239242",
-    },
-    {
-      title: "Carpet Cleaning",
-      details: [
-        "Carpet shampooing",
-        "Spot and stain treatment",
-        "Odor removal",
-        "Area rug cleaning",
-      ],
-      iconUrl: "https://cdn-icons-png.freepik.com/512/8948/8948933.png?uid=R222621354&ga=GA1.1.1923233215.1763239242",
+      title: "Rental & Airbnb Turnovers",
+      emoji: "🏡",
+      description: "Quick, reliable cleanings that help you impress guests and protect your property.",
     },
   ];
 
@@ -204,16 +183,16 @@ export default function Home() {
 
               <div className="mt-2 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
                 <InteractiveHoverButton
-                  text="Get a Free Quote"
+                  text="Book Your Cleaning"
                   onClick={() => {
                     window.location.href = "/contact";
                   }}
                 />
                 <a
-                  href="/contact"
+                  href="tel:+1 (613) 854-7507"
                   className="px-4 py-2.5 border border-foreground text-foreground rounded-lg hover:bg-foreground/5 transition-all inline-flex items-center justify-center gap-2"
                 >
-                  Tell Us Your Cleaning Needs
+                  Call Now
                 </a>
               </div>
             </div>
@@ -271,17 +250,17 @@ export default function Home() {
 
               <div className="hidden sm:flex sm:flex-row items-center gap-4 sm:justify-center">
                 <InteractiveHoverButton
-                  text="Get a Free Quote"
-                  className="px-5 py-3 w-44"
+                  text="Book Your Cleaning"
+                  className="px-5 py-3 w-48"
                   onClick={() => {
                     window.location.href = "/contact";
                   }}
                 />
                 <a
-                  href="/contact"
+                  href="tel:+1 (613) 854-7507"
                   className="px-8 py-2.5 border border-foreground text-foreground rounded-lg hover:bg-foreground/5 transition-all font-semibold inline-flex items-center justify-center gap-2"
                 >
-                  Tell Us Your Cleaning Needs
+                  Call Now
                 </a>
               </div>
             </div>
@@ -328,20 +307,20 @@ export default function Home() {
           </div>
 
           {/* Mobile-only CTA */}
-          <div className="flex flex-col items-center gap-5 -mt-1 mb-6 sm:hidden">
+          <div className="flex flex-col items-center gap-9 -mt-1 mb-6 sm:hidden">
+            <a
+              href="tel:+1 (613) 854-7507"
+              className="px-8 py-2.5 border border-foreground text-foreground rounded-lg hover:bg-foreground/5 transition-all font-semibold inline-flex items-center justify-center gap-2"
+            >
+              Call Now
+            </a>
             <InteractiveHoverButton
-              text="Get a Free Quote"
-              className="px-5 py-3 w-44 -mt-4"
+              text="Book Your Cleaning"
+              className="px-5 py-3 w-48 -mt-4"
               onClick={() => {
                 window.location.href = "/contact";
               }}
             />
-            <a
-              href="/contact"
-              className="px-8 py-2.5 border border-foreground text-foreground rounded-lg hover:bg-foreground/5 transition-all font-semibold inline-flex items-center justify-center gap-2"
-            >
-              Tell Us Your Cleaning Needs
-            </a>
           </div>
 
           {/* Stats Secn */}
@@ -554,34 +533,39 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {services.map((service, index) => (
               <div
                 key={index}
                 className="group p-8 rounded-xl border border-border bg-card hover:border-primary/40 hover:shadow-lg transition-all hover:-translate-y-1"
               >
-                <div className="text-5xl mb-4">{<img
-                  src={service.iconUrl}
-                  alt=""
-                  className="w-14 object-contain"
-                />}</div>
-                <h3 className="font-bold text-xl mb-3 text-foreground group-hover:text-primary transition-colors">
+                {/* Emoji Icon */}
+                <div className="text-4xl mb-4">
+                  {service.emoji}
+                </div>
+
+                {/* Title */}
+                <h3 className="font-bold text-xl mb-2 text-foreground group-hover:text-primary transition-colors">
                   {service.title}
                 </h3>
 
-                {/* Yahan maine <p> hata kar <ul> aur map() lagaya hai */}
-                <ul className="text-foreground/70 leading-relaxed space-y-2">
-                  {service.details.map((detail, idx) => (
-                    <li key={idx} className="flex items-start">
-                      {/* Bullet point ke liye dot add kiya hai */}
-                      <span className="mr-2">•</span>
-                      {detail}
-                    </li>
-                  ))}
-                </ul>
-
+                {/* Single-line pointer/description */}
+                <p className="text-foreground/70 leading-relaxed text-sm">
+                  {service.description}
+                </p>
               </div>
             ))}
+          </div>
+
+          {/* CTA under services */}
+          <div className="mt-10 flex justify-center">
+            <Link
+              href="/services"
+              className="inline-flex items-center gap-1 text-primary font-medium text-sm border-b border-transparent hover:border-primary transition-colors"
+            >
+              View Full Service Details
+              <ArrowRight size={14} />
+            </Link>
           </div>
         </div>
       </section>
@@ -589,7 +573,7 @@ export default function Home() {
 
       {/* --- SECTION 1: Real Results (Before & After) --- */}
       {/* --- SECTION 1: Real Results (Slider) --- */}
-      <section className="py-16 bg-white">
+     <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-10">
             <h2 className="text-4xl font-bold text-slate-900 mb-4">See The Difference</h2>
@@ -604,17 +588,17 @@ export default function Home() {
             {/* Previous Button */}
             <button
               onClick={prevSlide}
-              className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-2 md:-translate-x-12 z-20 bg-white p-2 rounded-full shadow-lg border border-slate-100 text-slate-700 hover:text-primary hover:scale-110 transition-all"
+              className="absolute left-0 cursor-pointer top-65 md:top-50 -translate-y-1/2 -translate-x-2 md:-translate-x-12 z-20 bg-white p-2 rounded-full shadow-lg border border-slate-100 text-slate-700 hover:text-primary hover:scale-110 transition-all"
             >
-              <ChevronLeft size={32} />
+              <ChevronLeft size={24} />
             </button>
 
             {/* Next Button */}
             <button
               onClick={nextSlide}
-              className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-2 md:translate-x-12 z-20 bg-white p-2 rounded-full shadow-lg border border-slate-100 text-slate-700 hover:text-primary hover:scale-110 transition-all"
+              className="absolute right-0 cursor-pointer top-65 md:top-50 -translate-y-1/2 translate-x-2 md:translate-x-12 z-20 bg-white p-2 rounded-full shadow-lg border border-slate-100 text-slate-700 hover:text-primary hover:scale-110 transition-all"
             >
-              <ChevronRight size={32} />
+              <ChevronRight size={24} />
             </button>
 
             {/* Animated Content */}
@@ -792,10 +776,13 @@ export default function Home() {
         <div className="absolute bottom-0 left-0 -mb-20 -ml-20 w-80 h-80 bg-blue-400/10 rounded-full blur-3xl pointer-events-none"></div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
+          <div className="grid md:grid-cols-2 gap-16 items-start">
 
             {/* Left Column: Headlines & Stats */}
             <div>
+              <p className="text-sm font-semibold text-primary tracking-wide uppercase mb-2">
+                What Our Clients Say
+              </p>
               <h2 className="text-4xl md:text-5xl font-extrabold text-slate-900 mb-6 tracking-tight leading-tight">
                 You’re in <br />
                 <span className="text-primary">Good Company</span>
@@ -826,39 +813,70 @@ export default function Home() {
             </div>
 
             {/* Right Column: Reviews */}
-            <div className="flex flex-col gap-6">
-
+            <div className="grid sm:grid-cols-2 gap-4">
               {/* Amanda */}
-              <div className="bg-white p-8 rounded-2xl shadow-lg shadow-slate-200/50 border border-slate-100 hover:-translate-y-1 transition-transform duration-300">
-                <div className="flex gap-1 text-yellow-400 mb-4">
-                  {[1, 2, 3, 4, 5].map((s) => <Star key={s} size={18} fill="currentColor" />)}
+              <div className="bg-white p-5 rounded-2xl shadow-lg shadow-slate-200/50 border border-slate-100 hover:-translate-y-1 transition-transform duration-300">
+                <div className="flex gap-1 text-yellow-400 mb-3">
+                  {[1, 2, 3, 4, 5].map((s) => <Star key={s} size={16} fill="currentColor" />)}
                 </div>
-                <p className="text-lg text-slate-700 font-medium italic mb-6">
+                <p className="text-base text-slate-700 font-medium italic mb-4">
                   "Lizzo Cleaning always goes above and beyond. We come home smiling after every visit!"
                 </p>
-                <div className="flex justify-between items-end border-t border-slate-100 pt-4">
+                <div className="flex justify-between items-end border-t border-slate-100 pt-3">
                   <div>
                     <p className="font-bold text-slate-900">Amanda</p>
                     <p className="text-xs text-slate-500 uppercase tracking-wide">Ottawa Resident</p>
                   </div>
-                  <Quote className="text-slate-200" size={32} />
+                  <Quote className="text-slate-200" size={28} />
                 </div>
               </div>
 
               {/* Embassy */}
-              <div className="bg-white p-8 rounded-2xl shadow-lg shadow-slate-200/50 border border-slate-100 hover:-translate-y-1 transition-transform duration-300 lg:ml-8">
-                <div className="flex gap-1 text-yellow-400 mb-4">
-                  {[1, 2, 3, 4, 5].map((s) => <Star key={s} size={18} fill="currentColor" />)}
+              <div className="bg-white p-5 rounded-2xl shadow-lg shadow-slate-200/50 border border-slate-100 hover:-translate-y-1 transition-transform duration-300 lg:ml-4">
+                <div className="flex gap-1 text-yellow-400 mb-3">
+                  {[1, 2, 3, 4, 5].map((s) => <Star key={s} size={16} fill="currentColor" />)}
                 </div>
-                <p className="text-lg text-slate-700 font-medium italic mb-6">
+                <p className="text-base text-slate-700 font-medium italic mb-4">
                   "I used them twice for our diplomats arriving and departing cleaning, very good cleaning, amazing team."
                 </p>
-                <div className="flex justify-between items-end border-t border-slate-100 pt-4">
+                <div className="flex justify-between items-end border-t border-slate-100 pt-3">
                   <div>
                     <p className="font-bold text-slate-900">Lesotho Embassy</p>
                     <p className="text-xs text-slate-500 uppercase tracking-wide">Diplomatic Service</p>
                   </div>
-                  <Quote className="text-slate-200" size={32} />
+                  <Quote className="text-slate-200" size={28} />
+                </div>
+              </div>
+
+              {/* Sarah */}
+              <div className="bg-white p-5 rounded-2xl shadow-lg shadow-slate-200/50 border border-slate-100 hover:-translate-y-1 transition-transform duration-300">
+                <div className="flex gap-1 text-yellow-400 mb-3">
+                  {[1, 2, 3, 4, 5].map((s) => <Star key={s} size={16} fill="currentColor" />)}
+                </div>
+                <p className="text-base text-slate-700 font-medium italic mb-4">
+                  "Lizzo Cleaning, They're reliable, kind, and always do an incredible job."
+                </p>
+                <div className="flex justify-between items-end border-t border-slate-100 pt-3">
+                  <div>
+                    <p className="font-bold text-slate-900">Sarah M.</p>
+                  </div>
+                  <Quote className="text-slate-200" size={28} />
+                </div>
+              </div>
+
+              {/* James */}
+              <div className="bg-white p-5 rounded-2xl shadow-lg shadow-slate-200/50 border border-slate-100 hover:-translate-y-1 transition-transform duration-300 lg:ml-4">
+                <div className="flex gap-1 text-yellow-400 mb-3">
+                  {[1, 2, 3, 4, 5].map((s) => <Star key={s} size={16} fill="currentColor" />)}
+                </div>
+                <p className="text-base text-slate-700 font-medium italic mb-4">
+                  "We trust them completely with our office space. Professional, friendly, and consistent."
+                </p>
+                <div className="flex justify-between items-end border-t border-slate-100 pt-3">
+                  <div>
+                    <p className="font-bold text-slate-900">James R.</p>
+                  </div>
+                  <Quote className="text-slate-200" size={28} />
                 </div>
               </div>
 
