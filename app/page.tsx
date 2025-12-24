@@ -3,12 +3,78 @@
 import Navbar from "@/components/navbar"
 import Footer from "@/components/footer"
 import Link from "next/link"
-import { Check, ArrowRight, Users, Award, Clock, Zap, Shield, MapPin, ArrowUpRight } from "lucide-react"
+import { Check, ArrowRight, Users, Award, Clock, Zap, Shield, MapPin, ArrowUpRight, Sparkles, Heart, Star, Quote, ChevronLeft, ChevronRight } from "lucide-react"
+import { motion, AnimatePresence } from 'framer-motion';
 import { useState, useEffect } from "react"
-import { motion } from 'framer-motion';
+import Image from "next/image"
 
 export default function Home() {
   const [isLoaded, setIsLoaded] = useState(false)
+
+  // --- SLIDER STATE ---
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  // --- SLIDER DATA (7 Pairs) ---
+  const transformations = [
+    {
+      id: 1,
+      label: "Kitchen Deep Clean",
+      desc: "Grease removal and surface polishing.",
+      before: "/Before1.jpeg",
+      after: "/After1.jpeg"
+    },
+    {
+      id: 2,
+      label: "Bathroom Restoration",
+      desc: "Grout scrubbing and fixture shining.",
+      before: "/Before2.jpeg",
+      after: "/After2.jpeg"
+    },
+    {
+      id: 3,
+      label: "Living Room Refresh",
+      desc: "Dusting, vacuuming and organizing.",
+      before: "/Before3.jpeg",
+      after: "/After3.jpeg"
+    },
+    {
+      id: 4,
+      label: "Bedroom Makeover",
+      desc: "Bed making and detailed dusting.",
+      before: "/Before4.jpeg",
+      after: "/After4.jpeg"
+    },
+    {
+      id: 5,
+      label: "Office Deep Clean",
+      desc: "Sanitizing workstations and floor care.",
+      before: "/Before5.jpeg",
+      after: "/After5.jpeg"
+    },
+    {
+      id: 6,
+      label: "Move-Out Cleaning",
+      desc: "Complete empty home restoration.",
+      before: "/Before6.jpeg",
+      after: "/After6.jpeg"
+    },
+    {
+      id: 7,
+      label: "Post-Renovation Detail",
+      desc: "Removing fine construction dust.",
+      before: "/Before7.jpeg",
+      after: "/After7.jpeg"
+    },
+  ];
+
+  // --- SLIDER FUNCTIONS ---
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev === transformations.length - 1 ? 0 : prev + 1));
+  };
+
+  const prevSlide = () => {
+    setCurrentSlide((prev) => (prev === 0 ? transformations.length - 1 : prev - 1));
+  };
 
   useEffect(() => {
     setIsLoaded(true);
@@ -28,7 +94,7 @@ export default function Home() {
         "Move-in cleaning",
         "Move-out cleaning",
       ],
-       iconUrl: "https://cdn-icons-png.freepik.com/512/4326/4326454.png?uid=R222621354&ga=GA1.1.1923233215.1763239242",
+      iconUrl: "https://cdn-icons-png.freepik.com/512/4326/4326454.png?uid=R222621354&ga=GA1.1.1923233215.1763239242",
     },
     {
       title: "Commercial & Office Cleaning",
@@ -37,7 +103,7 @@ export default function Home() {
         "Small business cleaning",
         "After-hours cleaning",
       ],
-      iconUrl:"https://cdn-icons-png.freepik.com/512/14361/14361415.png?uid=R222621354&ga=GA1.1.1923233215.1763239242",
+      iconUrl: "https://cdn-icons-png.freepik.com/512/14361/14361415.png?uid=R222621354&ga=GA1.1.1923233215.1763239242",
     },
     {
       title: "Airbnb / Short-Term Rental Turnovers",
@@ -46,7 +112,7 @@ export default function Home() {
         "Bed making and restocking",
         "Same-day turnovers",
       ],
-      iconUrl:"https://cdn-icons-png.freepik.com/512/3343/3343865.png?uid=R222621354&ga=GA1.1.1923233215.1763239242",
+      iconUrl: "https://cdn-icons-png.freepik.com/512/3343/3343865.png?uid=R222621354&ga=GA1.1.1923233215.1763239242",
     },
     {
       title: "Post-Renovation Cleaning",
@@ -55,7 +121,7 @@ export default function Home() {
         "Surface wipe-down",
         "Floor and window detailing",
       ],
-      iconUrl:"https://cdn-icons-png.freepik.com/512/1999/1999178.png?uid=R222621354&ga=GA1.1.1923233215.1763239242",
+      iconUrl: "https://cdn-icons-png.freepik.com/512/1999/1999178.png?uid=R222621354&ga=GA1.1.1923233215.1763239242",
     },
     {
       title: "Seasonal & Specialty Services",
@@ -65,7 +131,7 @@ export default function Home() {
         "Closet organizing & decluttering",
         "Garage organizing & clean-up",
       ],
-      iconUrl:"https://cdn-icons-png.freepik.com/512/12627/12627318.png?uid=R222621354&ga=GA1.1.1923233215.1763239242",
+      iconUrl: "https://cdn-icons-png.freepik.com/512/12627/12627318.png?uid=R222621354&ga=GA1.1.1923233215.1763239242",
     },
     {
       title: "Carpet Cleaning",
@@ -75,7 +141,7 @@ export default function Home() {
         "Odor removal",
         "Area rug cleaning",
       ],
-           iconUrl:"https://cdn-icons-png.freepik.com/512/8948/8948933.png?uid=R222621354&ga=GA1.1.1923233215.1763239242",
+      iconUrl: "https://cdn-icons-png.freepik.com/512/8948/8948933.png?uid=R222621354&ga=GA1.1.1923233215.1763239242",
     },
   ];
 
@@ -168,26 +234,26 @@ export default function Home() {
 
       {/* Default Hero (mobile/desktop) */}
       {!isTablet && (
-      <section
-        style={{ minHeight: 'calc(var(--app-vh, 100vh))' }}
-        className={`pt-24 pb-0 px-4 sm:px-6 lg:px-8 relative flex flex-col transition-all duration-1000 ${isLoaded ? "opacity-100" : "opacity-0"}`}
-      >
-        <div
-          className="absolute inset-0 z-0"
-          style={{
-            backgroundImage:
-              "linear-gradient(135deg, rgba(60, 100, 180, 0.08) 0%, rgba(60, 100, 180, 0.04) 100%)",
-          }}
-        />
+        <section
+          style={{ minHeight: 'calc(var(--app-vh, 100vh))' }}
+          className={`pt-24 pb-0 px-4 sm:px-6 lg:px-8 relative flex flex-col transition-all duration-1000 ${isLoaded ? "opacity-100" : "opacity-0"}`}
+        >
+          <div
+            className="absolute inset-0 z-0"
+            style={{
+              backgroundImage:
+                "linear-gradient(135deg, rgba(60, 100, 180, 0.08) 0%, rgba(60, 100, 180, 0.04) 100%)",
+            }}
+          />
 
-        <div className="max-w-7xl mx-auto relative z-10 flex-1 flex flex-col h-full justify-between">
-          {/* Desktop / Tablet hero */}
-          <div className="flex flex-col flex-1 sm:grid sm:grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <div className="animate-slide-in-left flex flex-col flex-1 pb-4 sm:pb-0">
+          <div className="max-w-7xl mx-auto relative z-10 flex-1 flex flex-col h-full justify-between">
+            {/* Desktop / Tablet hero */}
+            <div className="flex flex-col flex-1 sm:grid sm:grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+              <div className="animate-slide-in-left flex flex-col flex-1 pb-4 sm:pb-0">
 
-              {/* 1. Main Heading */}
-              <h1
-                className="
+                {/* 1. Main Heading */}
+                <h1
+                  className="
             text-4xl
             sm:text-4xl
             md:text-7xl
@@ -195,13 +261,13 @@ export default function Home() {
             font-bold
             text-foreground
           "
-              >
-                Lizzo Cleaning
-              </h1>
+                >
+                  Lizzo Cleaning
+                </h1>
 
-              {/* 2. Slogan */}
-              <h2
-                className="
+                {/* 2. Slogan */}
+                <h2
+                  className="
             text-md
             sm:text-xl
             md:text-4xl
@@ -210,13 +276,13 @@ export default function Home() {
             text-primary
             mb-4
           "
-              >
-                Sparkling Spaces. Zero Stress.
-              </h2>
+                >
+                  Sparkling Spaces. Zero Stress.
+                </h2>
 
-              {/* 3. Paragraph */}
-              <p
-                className="
+                {/* 3. Paragraph */}
+                <p
+                  className="
             text-xl
             sm:text-2xl
             md:text-4xl
@@ -226,26 +292,26 @@ export default function Home() {
             leading-relaxed
             max-w-lg
           "
-              >
-                Lizzo Cleaning is your trusted local cleaning service for homes, offices,
-                and rentals. We show up on time, pay attention to the details, and leave
-                every space fresh, organized, and guest-ready.
-              </p>
+                >
+                  Lizzo Cleaning is your trusted local cleaning service for homes, offices,
+                  and rentals. We show up on time, pay attention to the details, and leave
+                  every space fresh, organized, and guest-ready.
+                </p>
 
-              {/* 4. Checklist */}
-              <ul
-                className="
+                {/* 4. Checklist */}
+                <ul
+                  className="
             space-y-3
             mb-2
             md:mb-6
             xl:mb-9
             2xl:mb-2
           "
-              >
-                <li className="flex items-center gap-3">
-                  <Check size={20} className="text-primary flex-shrink-0" />
-                  <span
-                    className="
+                >
+                  <li className="flex items-center gap-3">
+                    <Check size={20} className="text-primary flex-shrink-0" />
+                    <span
+                      className="
                 text-lg
                 sm:text-xl
                 md:text-2xl
@@ -253,15 +319,15 @@ export default function Home() {
                 font-medium
                 text-foreground
               "
-                  >
-                    Trained, trusted cleaners
-                  </span>
-                </li>
+                    >
+                      Trained, trusted cleaners
+                    </span>
+                  </li>
 
-                <li className="flex items-center gap-3">
-                  <Check size={20} className="text-primary flex-shrink-0" />
-                  <span
-                    className="
+                  <li className="flex items-center gap-3">
+                    <Check size={20} className="text-primary flex-shrink-0" />
+                    <span
+                      className="
                 text-lg
                 sm:text-xl
                 md:text-2xl
@@ -269,15 +335,15 @@ export default function Home() {
                 font-medium
                 text-foreground
               "
-                  >
-                    Flexible scheduling
-                  </span>
-                </li>
+                    >
+                      Flexible scheduling
+                    </span>
+                  </li>
 
-                <li className="flex items-center gap-3">
-                  <Check size={20} className="text-primary flex-shrink-0" />
-                  <span
-                    className="
+                  <li className="flex items-center gap-3">
+                    <Check size={20} className="text-primary flex-shrink-0" />
+                    <span
+                      className="
                 text-lg
                 sm:text-xl
                 md:text-2xl
@@ -285,15 +351,15 @@ export default function Home() {
                 font-medium
                 text-foreground
               "
-                  >
-                    Transparent pricing
-                  </span>
-                </li>
-              </ul>
+                    >
+                      Transparent pricing
+                    </span>
+                  </li>
+                </ul>
 
-              {/* 5. Buttons */}
-              <div
-                className="
+                {/* 5. Buttons */}
+                <div
+                  className="
             flex flex-col
             sm:flex-row
             gap-4
@@ -303,39 +369,39 @@ export default function Home() {
             lg:mt-0
             mb-2
           "
-              >
-                <Link
-                  href="/contact"
-                  className="px-8 py-3.5 bg-primary text-white rounded-lg hover:bg-primary/90 transition-all hover:shadow-lg font-semibold inline-flex items-center justify-center gap-2"
                 >
-                  Book Your Cleaning <ArrowRight size={20} />
-                </Link>
+                  <Link
+                    href="/contact"
+                    className="px-8 py-3.5 bg-primary text-white rounded-lg hover:bg-primary/90 transition-all hover:shadow-lg font-semibold inline-flex items-center justify-center gap-2"
+                  >
+                    Book Your Cleaning <ArrowRight size={20} />
+                  </Link>
 
-                <a
-                  href="tel:+1 (613) 854-7507"
-                  className="px-8 py-3.5 border-2 border-foreground text-foreground rounded-lg hover:bg-foreground/5 transition-all font-semibold inline-flex items-center justify-center gap-2"
-                >
-                  Call Now
-                </a>
+                  <a
+                    href="tel:+1 (613) 854-7507"
+                    className="px-8 py-3.5 border-2 border-foreground text-foreground rounded-lg hover:bg-foreground/5 transition-all font-semibold inline-flex items-center justify-center gap-2"
+                  >
+                    Call Now
+                  </a>
+                </div>
+              </div>
+
+              {/* Right Side Image */}
+              <div className="animate-slide-in-right hidden lg:block">
+                <div className="relative">
+                  <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-primary/10 rounded-3xl blur-3xl" />
+                  <img
+                    src="/professional-cleaning-service-modern-clean.jpg"
+                    alt="Professional cleaning team working"
+                    className="relative rounded-2xl lg:w-[40%] xl:w-[45%] object-cover shadow-2xl ml-40"
+                  />
+                </div>
               </div>
             </div>
 
-            {/* Right Side Image */}
-            <div className="animate-slide-in-right hidden lg:block">
-              <div className="relative">
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-primary/10 rounded-3xl blur-3xl" />
-                <img
-                  src="/professional-cleaning-service-modern-clean.jpg"
-                  alt="Professional cleaning team working"
-                  className="relative rounded-2xl lg:w-[40%] xl:w-[45%] object-cover shadow-2xl ml-40"
-                />
-              </div>
-            </div>
-          </div>
-
-          {/* Stats Secn */}
-          <section
-            className="
+            {/* Stats Secn */}
+            <section
+              className="
       mt-16
       sm:mt-28
       md:mt-6
@@ -343,28 +409,28 @@ export default function Home() {
       2xl:mt-6
       hidden sm:block
     "
-          >
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {stats.map((stat, index) => {
-                const Icon = stat.icon
-                return (
-                  <div key={index} className="text-center">
-                    <div className="flex justify-center mb-4">
-                      <Icon size={32} className="text-primary" />
+            >
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                {stats.map((stat, index) => {
+                  const Icon = stat.icon
+                  return (
+                    <div key={index} className="text-center">
+                      <div className="flex justify-center mb-4">
+                        <Icon size={32} className="text-primary" />
+                      </div>
+                      <div className="text-4xl font-bold text-primary mb-2">
+                        {stat.number}
+                      </div>
+                      <div className="text-foreground/70 font-medium">
+                        {stat.label}
+                      </div>
                     </div>
-                    <div className="text-4xl font-bold text-primary mb-2">
-                      {stat.number}
-                    </div>
-                    <div className="text-foreground/70 font-medium">
-                      {stat.label}
-                    </div>
-                  </div>
-                )
-              })}
-            </div>
-          </section>
-        </div>
-      </section>
+                  )
+                })}
+              </div>
+            </section>
+          </div>
+        </section>
       )}
 
       {/* How It Works - Scroll animated cards */}
@@ -374,7 +440,7 @@ export default function Home() {
             <h2 className="text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight">How It Works</h2>
             <p className="text-black-500 text-xl md:text-xl max-w-2xl mx-auto font-medium">We clean so you can focus on what matters.</p>
             <p className="text-slate-500 text-sm md:text-sm max-w-xl mx-auto font-medium">
-              Whether it is a busy family household, a high-traffic office, or a short-term rental that needs fast turnovers, Lizzo Cleaning delivers reliable, consistent results every time.
+              We always arrive on time and treat your home like it’s our own, no corners cut, no surprises.
             </p>
           </div>
 
@@ -383,17 +449,17 @@ export default function Home() {
               {
                 number: "01",
                 title: "Tell Us About Your Space",
-                desc: "Fill out a quick  with your home or office details",
+                desc: "No long forms,  just a few simple details.",
                 icon: "📋",
               },
               {
                 number: "02",
-                title: "Choose Your Date & Time",
-                desc: "Pick a time that works for you-one-time or recurring",
+                title: "Choose the Day & Time You Prefer",
+                desc: "One-time or routine visits that fit your schedule.",
                 icon: "📅",
               },
-              { number: "03", title: "Book & pay online", desc: "Confirm instantly with secure online payment.", icon: "💳" },
-              { number: "04", title: "Relax, we do the rest", desc: "Our team arrives with supplies and leaves your space spotless.", icon: "✨" },
+              { number: "03", title: "Book & Relax", desc: "We take care of everything  from arrival to spotless finish.", icon: "💳" },
+              { number: "04", title: "Enjoy Your Time Back", desc: "Go back to your life while we make your space shine.", icon: "✨" },
             ].map((step, i) => (
               <div
                 key={i}
@@ -458,15 +524,81 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Services Section */}
 
+      <section className="py-10 bg-white relative overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+          {/* Part 1: Why Lizzo Cleaning */}
+          <div className="grid lg:grid-cols-2 gap-16 items-center mb-24">
+
+            {/* Left: Copy */}
+            <div className="relative z-10">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold uppercase tracking-wider mb-6">
+                Why Lizzo Cleaning
+              </div>
+
+              <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6 tracking-tight leading-tight">
+                Cleaning That Respects <br />
+                <span className="text-primary">Your Space and Your Time</span>
+              </h2>
+
+              <div className="space-y-6 text-lg text-slate-600 leading-relaxed">
+                <p>
+                  We know life gets busy. Cleaning shouldn’t be another source of stress.
+                  That’s why our team shows up on time, listens to your needs, and pays
+                  attention to the small details that make a big difference.
+                </p>
+                <p className="font-medium text-slate-900">
+                  When you invite us into your space, we treat it with care, respect,
+                  and professionalism, every single visit.
+                </p>
+              </div>
+            </div>
+
+            {/* Right: Visual Features (Representing the text) */}
+            <div className="grid gap-6">
+              {[
+                {
+                  icon: Clock,
+                  title: "Respect for Your Time",
+                  desc: "We prioritize punctuality and efficient scheduling."
+                },
+                {
+                  icon: Sparkles,
+                  title: "Attention to Detail",
+                  desc: "We spot the small things others might miss."
+                },
+                {
+                  icon: Heart,
+                  title: "Care & Professionalism",
+                  desc: "We treat your home exactly as if it were our own."
+                }
+              ].map((feature, idx) => (
+                <div key={idx} className="flex items-start gap-5 p-5 rounded-xl border border-slate-100 bg-slate-50/50 hover:bg-white hover:shadow-lg hover:border-primary/20 transition-all duration-300">
+                  <div className="p-3 bg-white rounded-lg shadow-sm text-primary">
+                    <feature.icon size={24} />
+                  </div>
+                  <div>
+                    <h4 className="text-lg font-bold text-slate-900 mb-1">{feature.title}</h4>
+                    <p className="text-slate-500 text-sm">{feature.desc}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+
+        </div>
+      </section>
 
       {/* Services Section */}
-      <section className="py-10 px-4 sm:px-6 lg:px-8">
+      <section className="py-5 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-5xl font-bold text-foreground mb-4">Our Services</h2>
+            <h2 className="text-5xl font-bold text-foreground mb-4">Our Cleaning Services</h2>
             <p className="text-xl text-foreground/60 max-w-2xl mx-auto">
-              Comprehensive cleaning solutions for every need. Professional service you can trust.
+              Simple, reliable cleaning tailored to your space.
             </p>
           </div>
 
@@ -476,11 +608,11 @@ export default function Home() {
                 key={index}
                 className="group p-8 rounded-xl border border-border bg-card hover:border-primary/40 hover:shadow-lg transition-all hover:-translate-y-1"
               >
-                <div className="text-5xl mb-4">{ <img 
-                        src={service.iconUrl} 
-                        alt="" 
-                        className="w-14 object-contain"
-                      />}</div>
+                <div className="text-5xl mb-4">{<img
+                  src={service.iconUrl}
+                  alt=""
+                  className="w-14 object-contain"
+                />}</div>
                 <h3 className="font-bold text-xl mb-3 text-foreground group-hover:text-primary transition-colors">
                   {service.title}
                 </h3>
@@ -502,6 +634,109 @@ export default function Home() {
         </div>
       </section>
 
+
+      {/* --- SECTION 1: Real Results (Before & After) --- */}
+      {/* --- SECTION 1: Real Results (Slider) --- */}
+      <section className="py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-10">
+            <h2 className="text-4xl font-bold text-slate-900 mb-4">See The Difference</h2>
+            <p className="text-xl text-slate-500 max-w-2xl mx-auto">
+              Real results from real Ottawa homes. Swipe to see how we transform spaces.
+            </p>
+          </div>
+
+          {/* Slider Container */}
+          <div className="relative max-w-5xl mx-auto">
+
+            {/* Previous Button */}
+            <button
+              onClick={prevSlide}
+              className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-2 md:-translate-x-12 z-20 bg-white p-2 rounded-full shadow-lg border border-slate-100 text-slate-700 hover:text-primary hover:scale-110 transition-all"
+            >
+              <ChevronLeft size={32} />
+            </button>
+
+            {/* Next Button */}
+            <button
+              onClick={nextSlide}
+              className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-2 md:translate-x-12 z-20 bg-white p-2 rounded-full shadow-lg border border-slate-100 text-slate-700 hover:text-primary hover:scale-110 transition-all"
+            >
+              <ChevronRight size={32} />
+            </button>
+
+            {/* Animated Content */}
+            <div className="overflow-hidden min-h-[500px] flex items-center justify-center">
+              <AnimatePresence mode='wait'>
+                <motion.div
+                  key={currentSlide}
+                  initial={{ opacity: 0, x: 20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: -20 }}
+                  transition={{ duration: 0.3 }}
+                  className="flex flex-col gap-6 w-full"
+                >
+                  {/* Images Row */}
+                  <div className="flex flex-col md:flex-row items-center gap-4 md:gap-6">
+
+                    {/* Before Image */}
+                    <div className="relative w-full md:w-1/2 group rounded-2xl overflow-hidden shadow-lg">
+                      <div className="absolute top-4 left-4 bg-red-500/90 text-white px-3 py-1 rounded-full text-sm font-bold z-10 shadow-sm backdrop-blur-sm">
+                        BEFORE
+                      </div>
+                      <img
+                        src={transformations[currentSlide].before}
+                        alt="Before Cleaning"
+                        className="w-full h-64 md:h-80 object-cover bg-slate-100"
+                      />
+                    </div>
+
+                    {/* Arrow (Desktop) */}
+                    <div className="hidden md:flex text-primary/30">
+                      <ArrowRight size={40} />
+                    </div>
+
+                    {/* After Image */}
+                    <div className="relative w-full md:w-1/2 group rounded-2xl overflow-hidden shadow-lg border-2 border-primary/20">
+                      <div className="absolute top-4 left-4 bg-primary text-white px-3 py-1 rounded-full text-sm font-bold z-10 shadow-sm backdrop-blur-sm">
+                        AFTER
+                      </div>
+                      <img
+                        src={transformations[currentSlide].after}
+                        alt="After Cleaning"
+                        className="w-full h-64 md:h-80 object-cover bg-slate-100"
+                      />
+                    </div>
+                  </div>
+
+                  {/* Description Text */}
+                  <div className="text-center mt-2">
+                    <h3 className="text-2xl font-bold text-slate-900 mb-2">
+                      {transformations[currentSlide].label}
+                    </h3>
+                    <p className="text-lg text-slate-500">
+                      {transformations[currentSlide].desc}
+                    </p>
+                  </div>
+                </motion.div>
+              </AnimatePresence>
+            </div>
+
+            {/* Dots Navigation (Indicators) */}
+            <div className="flex justify-center gap-2 mt-6">
+              {transformations.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => setCurrentSlide(index)}
+                  className={`w-3 h-3 rounded-full transition-all duration-300 ${currentSlide === index ? "bg-primary w-8" : "bg-slate-300 hover:bg-primary/50"
+                    }`}
+                />
+              ))}
+            </div>
+
+          </div>
+        </div>
+      </section>
 
 
 
@@ -597,6 +832,90 @@ export default function Home() {
       </section>
 
 
+      {/* --- SECTION: Social Proof Block (You're in Good Company) --- */}
+      <section className="py-20 bg-slate-50 relative overflow-hidden">
+
+        {/* Background Decoration - Subtle */}
+        <div className="absolute top-0 right-0 -mt-20 -mr-20 w-96 h-96 bg-primary/5 rounded-full blur-3xl pointer-events-none"></div>
+        <div className="absolute bottom-0 left-0 -mb-20 -ml-20 w-80 h-80 bg-blue-400/10 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+
+            {/* Left Column: Headlines & Stats */}
+            <div>
+              <h2 className="text-4xl md:text-5xl font-extrabold text-slate-900 mb-6 tracking-tight leading-tight">
+                You’re in <br />
+                <span className="text-primary">Good Company</span>
+              </h2>
+
+              <p className="text-slate-600 text-lg mb-10 max-w-md">
+                Join the hundreds of Ottawa families and businesses who trust us with their keys and their comfort.
+              </p>
+
+              {/* Stats Row */}
+              <div className="space-y-6">
+                {[
+                  { icon: Users, title: "Trusted by Hundreds", sub: "Local families & businesses" },
+                  { icon: Award, title: "4.9 Average Rating", sub: "Consistently 5-star service" },
+                  { icon: Clock, title: "5+ Years Experience", sub: "Of consistent care" },
+                ].map((stat, i) => (
+                  <div key={i} className="flex items-center gap-4 group">
+                    <div className="p-3 bg-white rounded-xl shadow-sm border border-slate-100 group-hover:border-primary/30 transition-colors">
+                      <stat.icon className="text-primary" size={24} />
+                    </div>
+                    <div>
+                      <p className="font-bold text-xl text-slate-900">{stat.title}</p>
+                      <p className="text-sm text-slate-500">{stat.sub}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Right Column: Reviews */}
+            <div className="flex flex-col gap-6">
+
+              {/* Amanda */}
+              <div className="bg-white p-8 rounded-2xl shadow-lg shadow-slate-200/50 border border-slate-100 hover:-translate-y-1 transition-transform duration-300">
+                <div className="flex gap-1 text-yellow-400 mb-4">
+                  {[1, 2, 3, 4, 5].map((s) => <Star key={s} size={18} fill="currentColor" />)}
+                </div>
+                <p className="text-lg text-slate-700 font-medium italic mb-6">
+                  "Lizzo Cleaning always goes above and beyond. We come home smiling after every visit!"
+                </p>
+                <div className="flex justify-between items-end border-t border-slate-100 pt-4">
+                  <div>
+                    <p className="font-bold text-slate-900">Amanda</p>
+                    <p className="text-xs text-slate-500 uppercase tracking-wide">Ottawa Resident</p>
+                  </div>
+                  <Quote className="text-slate-200" size={32} />
+                </div>
+              </div>
+
+              {/* Embassy */}
+              <div className="bg-white p-8 rounded-2xl shadow-lg shadow-slate-200/50 border border-slate-100 hover:-translate-y-1 transition-transform duration-300 lg:ml-8">
+                <div className="flex gap-1 text-yellow-400 mb-4">
+                  {[1, 2, 3, 4, 5].map((s) => <Star key={s} size={18} fill="currentColor" />)}
+                </div>
+                <p className="text-lg text-slate-700 font-medium italic mb-6">
+                  "I used them twice for our diplomats arriving and departing cleaning, very good cleaning, amazing team."
+                </p>
+                <div className="flex justify-between items-end border-t border-slate-100 pt-4">
+                  <div>
+                    <p className="font-bold text-slate-900">Lesotho Embassy</p>
+                    <p className="text-xs text-slate-500 uppercase tracking-wide">Diplomatic Service</p>
+                  </div>
+                  <Quote className="text-slate-200" size={32} />
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </section>
+
+
       {/* CTA Section */}
       <section className="py-14 px-4 sm:px-6 lg:px-8 bg-white border-y border-slate-100">
         <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
@@ -604,10 +923,12 @@ export default function Home() {
           {/* Left Side: Typography */}
           <div className="text-left">
             <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6 tracking-tight">
-              Ready for a spotlessly <br /> clean space?
+              Get a Free Quote <br /> Tell Us Your Cleaning Needs
+
             </h2>
             <p className="text-lg text-slate-500 mb-8 max-w-lg leading-relaxed">
-              Whether it's a short-term rental or your forever home, our team provides the consistent quality you've been looking for.
+              We make your space feel calm, fresh, and cared for, so you can focus on what matters most.
+              Whether it’s your family home, your office, or a rental turnover, our team shows up with care, consistency, and a smile.
             </p>
 
             <div className="flex flex-wrap gap-4">
