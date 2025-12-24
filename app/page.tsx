@@ -173,53 +173,47 @@ const transformations = [
 
       <Navbar />
 
-      {/* Tablet-only Hero (with stats, all-in-one) */}
+        {/* Tablet-only Hero (with stats, all-in-one) */}
       {isTablet && (
         <section style={{ minHeight: 'calc(var(--app-vh, 100vh))' }} className="pt-20 pb-0 px-6 relative  flex flex-col transition-all duration-1000 overflow-auto">
           <div className="absolute inset-0 z-0" style={{ backgroundImage: "linear-gradient(135deg, rgba(60, 100, 180, 0.08) 0%, rgba(60, 100, 180, 0.04) 100%)" }} />
           <div className="max-w-2xl mx-auto relative z-10 flex flex-col h-full flex-1">
             <div className="flex flex-col flex-1">
-              <AnimatedHero />
-
-              <div className="mt-2 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
-                <InteractiveHoverButton
-                  text="Book Your Cleaning"
-                  onClick={() => {
-                    window.location.href = "/contact";
-                  }}
-                />
-                <a
-                  href="tel:+1 (613) 854-7507"
-                  className="px-4 py-2.5 border border-foreground text-foreground rounded-lg hover:bg-foreground/5 transition-all inline-flex items-center justify-center gap-2"
-                >
-                  Call Now
-                </a>
+              <h1 className="text-5xl font-bold text-foreground mb-2 mt-4"> Welcome to Lizzo Cleaning </h1>
+              <h2 className="text-3xl font-medium text-primary mb-2">Where every space feels like home.</h2>
+              <p className="text-3xl text-foreground/70 mb-4 leading-relaxed max-w-lg">  We’re a local team passionate about turning your space into a calm, fresh-feeling place to live and work.
+                 <br/>
+                 Warm, reliable cleaning from a local team who treats your space like their own.
+                 <br/>
+                 Busy family mornings, last-minute guests, or just some peace of mind we’re here to help.</p>
+              <ul className="space-y-2 mb-6">
+                <li className="flex items-center gap-3"><Check size={20} className="text-primary flex-shrink-0" /><span className="text-2xl font-medium text-foreground">Trained, trusted cleaners</span></li>
+                <li className="flex items-center gap-3"><Check size={20} className="text-primary flex-shrink-0" /><span className="text-2xl font-medium text-foreground">Flexible scheduling</span></li>
+                <li className="flex items-center gap-3"><Check size={20} className="text-primary flex-shrink-0" /><span className="text-2xl font-medium text-foreground">Transparent pricing</span></li>
+              </ul>
+              <div className="flex flex-row gap-4 mt-6">
+                <Link href="/contact" className="w-1/2 px-8 py-3.5 bg-primary text-white rounded-lg hover:bg-primary/90 transition-all hover:shadow-lg font-semibold inline-flex items-center justify-center gap-2">Book Your Cleaning <ArrowRight size={20} /></Link>
+              </div>
+              <div className="flex flex-row gap-4 mt-6 mb-4 ">
+                <a href="tel:+1 (613) 854-7507" className="w-1/2 px-8 py-3.5 border-2 border-foreground text-foreground rounded-lg hover:bg-foreground/5 transition-all font-semibold inline-flex items-center justify-center gap-2">Call Now</a>
               </div>
             </div>
-
             {/* Stats Section for tablet at bottom */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-auto mb-8 flex-shrink-0">
               {stats.map((stat, index) => {
                 const Icon = stat.icon;
                 return (
-                  <motion.div
-                    key={index}
-                    className="text-center"
-                    initial={{ opacity: 0, y: 10 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.4, delay: index * 0.1 }}
-                  >
-                    <div className="flex justify-center mb-3">
-                      <Icon size={28} className="text-primary" />
+                  <div key={index} className="text-center">
+                    <div className="flex justify-center mb-4">
+                      <Icon size={32} className="text-primary" />
                     </div>
-                    <div className="text-3xl md:text-4xl font-bold text-primary mb-1">
+                    <div className="text-4xl font-bold text-primary mb-2">
                       {stat.number}
                     </div>
-                    <div className="text-sm md:text-base text-foreground/70 font-medium">
+                    <div className="text-foreground/70 font-medium">
                       {stat.label}
                     </div>
-                  </motion.div>
+                  </div>
                 );
               })}
             </div>
@@ -230,9 +224,9 @@ const transformations = [
       {/* Default Hero (mobile/desktop) */}
       {!isTablet && (
       <section
-         style={{ minHeight: 'calc(var(--app-vh, 100vh))' }}
-        className={`pt-12 sm:pt-10 pb-0 px-4 sm:px-6 lg:px-8 relative flex flex-col transition-all duration-1000 ${isLoaded ? "opacity-100" : "opacity-0"}`}
-       >
+        style={{ minHeight: 'calc(var(--app-vh, 100vh))' }}
+        className={`pt-24 pb-0 px-4 sm:px-6 lg:px-8 relative flex flex-col transition-all duration-1000 ${isLoaded ? "opacity-100" : "opacity-0"}`}
+      >
         <div
           className="absolute inset-0 z-0"
           style={{
@@ -241,32 +235,149 @@ const transformations = [
           }}
         />
 
-        <div className="max-w-7xl mx-auto relative z-10 flex-1 flex flex-col h-full justify-start sm:justify-between">
+        <div className="max-w-7xl mx-auto relative z-10 flex-1 flex flex-col h-full justify-between">
           {/* Desktop / Tablet hero */}
           <div className="flex flex-col flex-1 sm:grid sm:grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <div className="animate-slide-in-left flex flex-col flex-1 pb-4 sm:pb-0 sm:justify-center">
+            <div className="animate-slide-in-left flex flex-col flex-1 pb-4 sm:pb-0">
 
-              <AnimatedHero />
+              {/* 1. Main Heading */}
+              <h1
+                className="
+            text-4xl
+            sm:text-4xl
+            md:text-7xl
+            lg:text-4xl
+            font-bold
+            text-foreground
+          "
+              >
+                Welcome to Lizzo Cleaning 
+              </h1>
 
-              <div className="hidden sm:flex sm:flex-row items-center gap-4 sm:justify-center">
-                <InteractiveHoverButton
-                  text="Book Your Cleaning"
-                  className="px-5 py-3 w-48"
-                  onClick={() => {
-                    window.location.href = "/contact";
-                  }}
-                />
+              {/* 2. Slogan */}
+              <h2
+                className="
+            text-md
+            sm:text-xl
+            md:text-4xl
+            lg:text-xl
+            font-medium
+            text-primary
+            mb-4
+          "
+              >
+            Where every space feels like home. 
+              </h2>
+
+              {/* 3. Paragraph */}
+              <p
+                className="
+            text-lg
+            sm:text-2xl
+            md:text-4xl
+            lg:text-sm
+            text-foreground/70
+            mb-5
+            leading-relaxed
+            max-w-lg
+          "
+              >
+                 We’re a local team passionate about turning your space into a calm, fresh-feeling place to live and work.
+                 <br/>
+                 Warm, reliable cleaning from a local team who treats your space like their own.
+                 Busy family mornings, last-minute guests, or just some peace of mind we’re here to help.
+              </p>
+
+              {/* 4. Checklist */}
+              <ul
+                className="
+            space-y-3
+            mb-2
+            md:mb-6
+            xl:mb-9
+            2xl:mb-2
+          "
+              >
+                <li className="flex items-center gap-3">
+                  <Check size={20} className="text-primary flex-shrink-0" />
+                  <span
+                    className="
+                text-lg
+                sm:text-xl
+                md:text-2xl
+                lg:text-lg
+                font-medium
+                text-foreground
+              "
+                  >
+                    Trained, trusted cleaners
+                  </span>
+                </li>
+
+                <li className="flex items-center gap-3">
+                  <Check size={20} className="text-primary flex-shrink-0" />
+                  <span
+                    className="
+                text-lg
+                sm:text-xl
+                md:text-2xl
+                lg:text-lg
+                font-medium
+                text-foreground
+              "
+                  >
+                    Flexible scheduling
+                  </span>
+                </li>
+
+                <li className="flex items-center gap-3">
+                  <Check size={20} className="text-primary flex-shrink-0" />
+                  <span
+                    className="
+                text-lg
+                sm:text-xl
+                md:text-2xl
+                lg:text-lg
+                font-medium
+                text-foreground
+              "
+                  >
+                    Transparent pricing
+                  </span>
+                </li>
+              </ul>
+
+              {/* 5. Buttons */}
+              <div
+                className="
+            flex flex-col
+            sm:flex-row
+            gap-4
+            mt-auto
+            sm:mt-16
+            md:mt-2
+            lg:mt-0
+            mb-2
+          "
+              >
+                <Link
+                  href="/contact"
+                  className="px-8 py-3.5 bg-primary text-white rounded-lg hover:bg-primary/90 transition-all hover:shadow-lg font-semibold inline-flex items-center justify-center gap-2"
+                >
+                  Book Your Cleaning <ArrowRight size={20} />
+                </Link>
+
                 <a
                   href="tel:+1 (613) 854-7507"
-                  className="px-8 py-2.5 border border-foreground text-foreground rounded-lg hover:bg-foreground/5 transition-all font-semibold inline-flex items-center justify-center gap-2"
+                  className="px-8 py-3.5 border-2 border-foreground text-foreground rounded-lg hover:bg-foreground/5 transition-all font-semibold inline-flex items-center justify-center gap-2"
                 >
                   Call Now
                 </a>
               </div>
             </div>
 
-            {/* Right Side Image + Desktop Stats */}
-            <div className="animate-slide-in-right hidden lg:flex lg:flex-col lg:items-center">
+            {/* Right Side Image */}
+            <div className="animate-slide-in-right hidden lg:block">
               <div className="relative">
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-primary/10 rounded-3xl blur-3xl" />
                 <img
@@ -275,52 +386,7 @@ const transformations = [
                   className="relative rounded-2xl lg:w-[40%] xl:w-[45%] object-cover shadow-2xl ml-40"
                 />
               </div>
-
-              {/* Desktop-only compact stats under image */}
-              <div className="mt-6 grid grid-cols-3 gap-5 max-w-lg w-full">
-                {stats.map((stat, index) => {
-                  const Icon = stat.icon;
-                  return (
-                    <motion.div
-                      key={index}
-                      className="bg-white/80 backdrop-blur-sm rounded-xl px-5 py-4 shadow-sm border border-primary/10 flex flex-col items-center text-center"
-                      initial={{ opacity: 0, y: 8 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      whileHover={{ y: -6, scale: 1.04 }}
-                      whileTap={{ scale: 0.97 }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 0.35, delay: index * 0.08 }}
-                    >
-
-                      <Icon size={22} className="text-primary mb-1" />
-                      <div className="text-xl font-semibold text-primary leading-none">
-                        {stat.number}
-                      </div>
-                      <div className="mt-1 text-sm text-foreground/70">
-                        {stat.label}
-                      </div>
-                    </motion.div>
-                  );
-                })}
-              </div>
             </div>
-          </div>
-
-          {/* Mobile-only CTA */}
-          <div className="flex flex-col items-center gap-9 -mt-1 mb-6 sm:hidden">
-            <a
-              href="tel:+1 (613) 854-7507"
-              className="px-8 py-2.5 border border-foreground text-foreground rounded-lg hover:bg-foreground/5 transition-all font-semibold inline-flex items-center justify-center gap-2"
-            >
-              Call Now
-            </a>
-            <InteractiveHoverButton
-              text="Book Your Cleaning"
-              className="px-5 py-3 w-48 -mt-4"
-              onClick={() => {
-                window.location.href = "/contact";
-              }}
-            />
           </div>
 
           {/* Stats Secn */}
@@ -330,32 +396,25 @@ const transformations = [
       sm:mt-28
       md:mt-6
       lg:mt-2
-      2xl:mt-2
-      hidden sm:block lg:hidden
+      2xl:mt-6
+      hidden sm:block
     "
           >
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {stats.map((stat, index) => {
                 const Icon = stat.icon
                 return (
-                  <motion.div
-                    key={index}
-                    className="text-center"
-                    initial={{ opacity: 0, y: 10 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.4, delay: index * 0.1 }}
-                  >
-                    <div className="flex justify-center mb-3">
-                      <Icon size={22} className="text-primary" />
+                  <div key={index} className="text-center">
+                    <div className="flex justify-center mb-4">
+                      <Icon size={32} className="text-primary" />
                     </div>
-                    <div className="text-3xl md:text-3xl font-bold text-primary">
+                    <div className="text-4xl font-bold text-primary mb-2">
                       {stat.number}
                     </div>
-                    <div className="text-sm md:text-base text-foreground/70 font-medium">
+                    <div className="text-foreground/70 font-medium">
                       {stat.label}
                     </div>
-                  </motion.div>
+                  </div>
                 )
               })}
             </div>
@@ -369,7 +428,7 @@ const transformations = [
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16 space-y-4">
             <h2 className="text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight">How It Works</h2>
-            <p className="text-black-500 text-xl md:text-xl max-w-2xl mx-auto font-medium">We clean so you can focus on what matters.</p>
+            <p className="text-black-500 text-xl md:text-xl max-w-2xl mx-auto font-medium">How We Make Cleaning Easy for You</p>
             <p className="text-slate-500 text-sm md:text-sm max-w-xl mx-auto font-medium">
               We always arrive on time and treat your home like it’s our own, no corners cut, no surprises.
             </p>

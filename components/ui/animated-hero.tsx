@@ -26,6 +26,7 @@ function Hero() {
       <div className="container mx-auto">
         <div className="flex gap-8 py-10 lg:pt-16 lg:pb-8 items-center justify-center flex-col">
           <div className="flex gap-4 flex-col">
+            <h1>Welcome to <span className="text-primary font-semibold">Lizzo Cleaning</span>. Where every space feels like home.</h1>
             <h1 className="text-5xl md:text-7xl max-w-2xl tracking-tighter text-center font-normal">
               <span className="text-primary">
                 We make your space feel
@@ -57,7 +58,11 @@ function Hero() {
             </h1>
 
             <p className="mt-2 md:mt-0 text-xl md:text-xl max-[380px]:text-lg max-[340px]:text-base leading-relaxed tracking-tight text-muted-foreground max-w-2xl text-center">
-                          Welcome to <span className="text-primary font-semibold">Lizzo Cleaning</span>. Where every space feels like home. We’re a local team passionate about turning your space into a calm, fresh-feeling place to live and work. Warm, reliable cleaning from a local team who treats your space like their own. Busy family mornings, last-minute guests, or just some peace of mind we’re here to help. 
+              We’re a local team passionate about turning your space into a calm, fresh-feeling place to live and work. Warm, reliable cleaning from a local team who treats your space like their own.
+              <br/>
+              <span className="text-sm ">
+              Busy family mornings, last-minute guests, or just some peace of mind we’re here to help. 
+              </span>
             </p>
           </div>
         </div>

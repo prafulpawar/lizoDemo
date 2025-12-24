@@ -63,7 +63,10 @@ export default function About() {
             variants={fadeInUp}
             className="text-6xl md:text-7xl font-extrabold tracking-tight text-foreground mb-6"
           >
-            About <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-blue-600">Lizzo Cleaning</span>
+            About{" "}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-blue-600">
+              Lizzo Cleaning
+            </span>
           </motion.h1>
           <motion.p
             initial={{ opacity: 0 }}
@@ -80,7 +83,6 @@ export default function About() {
       <section className=" px-4 sm:px-6 lg:px-8 relative">
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
-
             {/* Image Side */}
             <motion.div
               initial={{ opacity: 0, x: -50 }}
@@ -107,19 +109,22 @@ export default function About() {
               transition={{ duration: 0.8, delay: 0.2 }}
               className="space-y-8"
             >
-              <h2 className="text-4xl font-bold text-foreground">Our Story</h2>
-              <div className="space-y-6 text-lg text-foreground/80 leading-relaxed">
+              <h2 className="text-4xl font-bold text-foreground">
+                A Local Team That Truly Cares
+              </h2>
+              <div className="space-y-6 text-xl text-foreground/80 leading-relaxed">
                 <p>
-                  Lizzo Cleaning was created with a simple promise: deliver reliable, detailed cleaning with the same care
-                  we would want in our own homes.
+                  Lizzo Cleaning is built on trust, care, and genuine attention
+                  to detail.
                 </p>
                 <p>
-                  We know inviting someone into your space requires trust. That is why we focus on clear communication,
-                  professionalism, punctuality, and consistent quality every visit.
+                  We’re proud to serve our local community and build long-term
+                  relationships with the people who welcome us into their
+                  spaces.
                 </p>
                 <p>
-                  Whether we are cleaning a family home, a growing office, or a busy short-term rental, our goal is the
-                  same: a fresh, calm space that makes your day easier.
+                  You’re never just another booking, you’re someone we’re happy
+                  to help.
                 </p>
               </div>
             </motion.div>
@@ -136,7 +141,9 @@ export default function About() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl font-bold text-foreground mb-4">Our Values</h2>
+            <h2 className="text-4xl font-bold text-foreground mb-4">
+              Our Values
+            </h2>
             <div className="h-1 w-20 bg-primary mx-auto rounded-full"></div>
           </motion.div>
 
@@ -148,10 +155,26 @@ export default function About() {
             className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 bg-white"
           >
             {[
-              { title: "Reliability", description: "We show up on time, every time.", icon: Clock },
-              { title: "Respect", description: "We treat your space with care and dignity.", icon: Shield },
-              { title: "Detail", description: "We pay attention to every corner.", icon: Star },
-              { title: "Care", description: "We clean like it is our own home.", icon: Heart },
+              {
+                title: "Reliability",
+                description: "We show up on time, every time.",
+                icon: Clock,
+              },
+              {
+                title: "Respect",
+                description: "We treat your space with care and dignity.",
+                icon: Shield,
+              },
+              {
+                title: "Detail",
+                description: "We pay attention to every corner.",
+                icon: Star,
+              },
+              {
+                title: "Care",
+                description: "We clean like it is our own home.",
+                icon: Heart,
+              },
             ].map((value, index) => (
               <motion.div
                 key={index}
@@ -162,7 +185,9 @@ export default function About() {
                 <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center text-primary mb-6">
                   <value.icon className="w-6 h-6" />
                 </div>
-                <h3 className="text-xl font-bold text-foreground mb-3">{value.title}</h3>
+                <h3 className="text-xl font-bold text-foreground mb-3">
+                  {value.title}
+                </h3>
                 <p className="text-foreground/60">{value.description}</p>
               </motion.div>
             ))}
@@ -171,7 +196,10 @@ export default function About() {
       </section>
 
       {/* --- CONTACT FORM SECTION (Glassmorphism & Floating) --- */}
-      <section id="contact" className="py-12 px-4 sm:px-6 lg:px-8 relative scroll-mt-10">
+      <section
+        id="contact"
+        className="py-12 px-4 sm:px-6 lg:px-8 relative scroll-mt-10"
+      >
         {/* Background Gradient Mesh */}
         <div className="absolute inset-0 bg-gradient-to-tr from-primary/5 via-transparent to-blue-500/5 -z-10"></div>
 
@@ -182,12 +210,15 @@ export default function About() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl font-bold text-foreground mb-4">Ready to get started?</h2>
-            <p className="text-xl text-foreground/60">Contact us today for a free quote.</p>
+            <h2 className="text-4xl font-bold text-foreground mb-4">
+              Ready to get started?
+            </h2>
+            <p className="text-xl text-foreground/60">
+              Contact us today for a free quote.
+            </p>
           </motion.div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
-
             {/* Left Side: Info */}
             <motion.div
               initial={{ opacity: 0, x: -30 }}
@@ -196,17 +227,35 @@ export default function About() {
               className="space-y-12"
             >
               <div>
-                <h3 className="text-2xl font-bold text-foreground mb-6">Contact Details</h3>
+                <h3 className="text-2xl font-bold text-foreground mb-6">
+                  Contact Details
+                </h3>
                 <p className="text-lg text-foreground/80 leading-relaxed mb-8">
-                  Whether you need a quick quote for a one-time clean or want to discuss a
-                  recurring schedule for your office, we are here to help.
+                  Whether you need a quick quote for a one-time clean or want to
+                  discuss a recurring schedule for your office, we are here to
+                  help.
                 </p>
 
                 <div className="space-y-8">
                   {[
-                    { title: "Phone", value: "+1 (613) 854-7507", link: "tel:+1 (613) 854-7507", icon: Phone },
-                    { title: "Email", value: "hello@lizzo.ca", link: "mailto:hello@lizzo.ca", icon: Mail },
-                    { title: "Service Areas", value: "Ottawa & Surrounding Regions", link: null, icon: MapPin },
+                    {
+                      title: "Phone",
+                      value: "+1 (613) 854-7507",
+                      link: "tel:+1 (613) 854-7507",
+                      icon: Phone,
+                    },
+                    {
+                      title: "Email",
+                      value: "hello@lizzo.ca",
+                      link: "mailto:hello@lizzo.ca",
+                      icon: Mail,
+                    },
+                    {
+                      title: "Service Areas",
+                      value: "Ottawa & Surrounding Regions",
+                      link: null,
+                      icon: MapPin,
+                    },
                   ].map((item, i) => (
                     <motion.div
                       key={i}
@@ -217,13 +266,20 @@ export default function About() {
                         <item.icon className="w-6 h-6" />
                       </div>
                       <div>
-                        <h4 className="font-semibold text-foreground text-lg">{item.title}</h4>
+                        <h4 className="font-semibold text-foreground text-lg">
+                          {item.title}
+                        </h4>
                         {item.link ? (
-                          <a href={item.link} className="text-foreground/60 hover:text-primary transition-colors text-lg">
+                          <a
+                            href={item.link}
+                            className="text-foreground/60 hover:text-primary transition-colors text-lg"
+                          >
                             {item.value}
                           </a>
                         ) : (
-                          <p className="text-foreground/60 text-lg">{item.value}</p>
+                          <p className="text-foreground/60 text-lg">
+                            {item.value}
+                          </p>
                         )}
                       </div>
                     </motion.div>
@@ -243,7 +299,9 @@ export default function About() {
               {/* Decorative accent */}
               <div className="absolute -top-px left-10 right-10 h-px bg-gradient-to-r from-transparent via-primary to-transparent opacity-50 bg-white"></div>
 
-              <h2 className="text-2xl font-bold text-foreground mb-8">Request a Free Quote</h2>
+              <h2 className="text-2xl font-bold text-foreground mb-8">
+                Request a Free Quote
+              </h2>
 
               {formStatus === "success" ? (
                 <motion.div
@@ -254,8 +312,13 @@ export default function About() {
                   <div className="w-20 h-20 bg-green-100 text-green-600 rounded-full flex items-center justify-center">
                     <CheckCircle2 className="w-10 h-10" />
                   </div>
-                  <h3 className="text-3xl font-bold text-foreground">Message Sent!</h3>
-                  <p className="text-foreground/60 text-lg">Thank you for contacting Lizzo Cleaning. We will get back to you within 24 hours.</p>
+                  <h3 className="text-3xl font-bold text-foreground">
+                    Message Sent!
+                  </h3>
+                  <p className="text-foreground/60 text-lg">
+                    Thank you for contacting Lizzo Cleaning. We will get back to
+                    you within 24 hours.
+                  </p>
                   <button
                     onClick={() => setFormStatus("idle")}
                     className="mt-4 text-primary font-medium hover:underline cursor-pointer"
@@ -267,7 +330,9 @@ export default function About() {
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                     <div className="space-y-2">
-                      <label className="text-sm font-medium text-foreground">First Name</label>
+                      <label className="text-sm font-medium text-foreground">
+                        First Name
+                      </label>
                       <input
                         required
                         type="text"
@@ -277,7 +342,9 @@ export default function About() {
                       />
                     </div>
                     <div className="space-y-2">
-                      <label className="text-sm font-medium text-foreground">Last Name</label>
+                      <label className="text-sm font-medium text-foreground">
+                        Last Name
+                      </label>
                       <input
                         required
                         type="text"
@@ -289,7 +356,9 @@ export default function About() {
                   </div>
 
                   <div className="space-y-2">
-                    <label className="text-sm font-medium text-foreground">Email</label>
+                    <label className="text-sm font-medium text-foreground">
+                      Email
+                    </label>
                     <input
                       required
                       type="email"
@@ -300,7 +369,9 @@ export default function About() {
                   </div>
 
                   <div className="space-y-2">
-                    <label className="text-sm font-medium text-foreground">Phone Number</label>
+                    <label className="text-sm font-medium text-foreground">
+                      Phone Number
+                    </label>
                     <input
                       type="tel"
                       id="phone"
@@ -310,7 +381,9 @@ export default function About() {
                   </div>
 
                   <div className="space-y-2">
-                    <label className="text-sm font-medium text-foreground">Service Type</label>
+                    <label className="text-sm font-medium text-foreground">
+                      Service Type
+                    </label>
                     <select
                       id="service"
                       className="flex h-12 w-full cursor-pointer rounded-xl border border-input bg-white px-4 text-base transition-all focus:ring-2 focus:ring-primary focus:border-transparent outline-none"
@@ -319,43 +392,84 @@ export default function About() {
                       <option value="standard">Residential Cleaning</option>
                       <option value="deep">Deep Cleaning</option>
                       <option value="deep"> Move-in / Move-out Cleaning</option>
-                      <option value="office"> Commercial & Office  Cleaning</option>
-                      <option value="airbnb">Airbnb & Rental Turnover Cleaning</option>
+                      <option value="office">
+                        {" "}
+                        Commercial & Office Cleaning
+                      </option>
+                      <option value="airbnb">
+                        Airbnb & Rental Turnover Cleaning
+                      </option>
                     </select>
                   </div>
 
                   <div className="space-y-2">
-                    <label className="text-sm font-medium text-foreground">Service Area</label>
+                    <label className="text-sm font-medium text-foreground">
+                      Service Area
+                    </label>
                     <select
                       id="serviceArea"
                       className="flex h-12 w-full cursor-pointer rounded-xl border border-input bg-white px-4 text-base transition-all focus:ring-2 focus:ring-primary focus:border-transparent outline-none"
                     >
                       <option value="">Select area.</option>
-                      <option id="Ottawa" value="Ottawa">Ottawa</option>
-                      <option id="Kanata" value="Kanata">Kanata</option>
-                      <option id="Vanier" value="Vanier">Vanier</option>
-                      <option id="Stittsville" value="Stittsville">Stittsville</option>
-                      <option id="Nepean" value="Nepean">Nepean</option>
-                      <option id="Alta_Visa" value="Alta Visa">Alta Visa</option>
-                      <option id="Riverside_South" value="Riverside South">Riverside South</option>
-                      <option id="Findlay_Creek" value="Findlay Creek">Findlay Creek</option>
-                      <option id="Orleans" value="Orleans">Orleans</option>
-                      <option id="Westboro" value="Westboro">Westboro</option>
-                      <option id="Manotick" value="Manotick">Manotick</option>
-                      <option id="Crystal_Beach" value="Crystal Beach">Crystal Beach</option>
-                      <option id="Kanata_2" value="Kanata">Kanata</option>
-                      <option id="Greely" value="Greely">Greely</option>
-                      <option id="Barrhaven" value="Barrhaven">Barrhaven</option>
-                      <option id="Bells_Corners" value="Bells Corners">Bells Corners</option>
-                      <option id="Smithfall" value="Smithfall">Smithfall</option>
+                      <option id="Ottawa" value="Ottawa">
+                        Ottawa
+                      </option>
+                      <option id="Kanata" value="Kanata">
+                        Kanata
+                      </option>
+                      <option id="Vanier" value="Vanier">
+                        Vanier
+                      </option>
+                      <option id="Stittsville" value="Stittsville">
+                        Stittsville
+                      </option>
+                      <option id="Nepean" value="Nepean">
+                        Nepean
+                      </option>
+                      <option id="Alta_Visa" value="Alta Visa">
+                        Alta Visa
+                      </option>
+                      <option id="Riverside_South" value="Riverside South">
+                        Riverside South
+                      </option>
+                      <option id="Findlay_Creek" value="Findlay Creek">
+                        Findlay Creek
+                      </option>
+                      <option id="Orleans" value="Orleans">
+                        Orleans
+                      </option>
+                      <option id="Westboro" value="Westboro">
+                        Westboro
+                      </option>
+                      <option id="Manotick" value="Manotick">
+                        Manotick
+                      </option>
+                      <option id="Crystal_Beach" value="Crystal Beach">
+                        Crystal Beach
+                      </option>
+                      <option id="Kanata_2" value="Kanata">
+                        Kanata
+                      </option>
+                      <option id="Greely" value="Greely">
+                        Greely
+                      </option>
+                      <option id="Barrhaven" value="Barrhaven">
+                        Barrhaven
+                      </option>
+                      <option id="Bells_Corners" value="Bells Corners">
+                        Bells Corners
+                      </option>
+                      <option id="Smithfall" value="Smithfall">
+                        Smithfall
+                      </option>
                       <option value="other">Other (Not Listed)</option>
-
                     </select>
                   </div>
 
-
                   <div className="space-y-2">
-                    <label className="text-sm font-medium text-foreground">Message / Details</label>
+                    <label className="text-sm font-medium text-foreground">
+                      Message / Details
+                    </label>
                     <textarea
                       id="message"
                       rows={4}
@@ -374,7 +488,10 @@ export default function About() {
                     {formStatus === "submitting" ? (
                       "Sending..."
                     ) : (
-                      <>Send Message <Send className="ml-2 w-5 h-5 cursor-pointer" /></>
+                      <>
+                        Send Message{" "}
+                        <Send className="ml-2 w-5 h-5 cursor-pointer" />
+                      </>
                     )}
                   </motion.button>
                 </form>
@@ -386,5 +503,5 @@ export default function About() {
 
       <Footer />
     </main>
-  )
+  );
 }

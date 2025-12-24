@@ -52,8 +52,8 @@ export default function Footer() {
   });
 
   return (
-    <footer className="bg-foreground text-card ">
-
+    <footer className="bg-[rgb(36,35,35)] text-card ">
+      
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
 
       
@@ -188,7 +188,7 @@ export default function Footer() {
 
       
         <div className="max-w-md mx-auto mb-10">
-          <h4 className="font-semibold text-center mb-3">Subscribe to Our Newsletter</h4>
+          <h4 className="font-semibold text-center mb-3">Ready for a Cleaner, Calmer Space?</h4>
 
           <form onSubmit={formik.handleSubmit} className="flex items-center gap-3">
             <input
