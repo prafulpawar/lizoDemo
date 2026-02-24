@@ -423,7 +423,7 @@ const transformations = [
       </section>
       )}
 
-      {/* How It Works - Scroll animated cards */}
+
       <section className="relative py-14 ">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16 space-y-4">
@@ -439,25 +439,41 @@ const transformations = [
               {
                 number: "01",
                 title: "Tell Us About Your Space",
-                desc: "No long forms,  just a few simple details.",
-                icon: "📋",
+                desc: "No long forms, just a few simple details.",
+                image: "/01Tell Us About Your Space.png",
               },
               {
                 number: "02",
                 title: "Choose the Day & Time You Prefer",
                 desc: "One-time or routine visits that fit your schedule.",
-                icon: "📅",
+                image: "/02Choose the Day  Time You Prefer.png", 
               },
-              { number: "03", title: "Book & Relax", desc: "We take care of everything  from arrival to spotless finish.", icon: "💳" },
-              { number: "04", title: "Enjoy Your Time Back", desc: "Go back to your life while we make your space shine.", icon: "✨" },
+              { 
+                number: "03", 
+                title: "Book & Relax", 
+                desc: "We take care of everything from arrival to spotless finish.", 
+                image: "/03Book & Relax.png" 
+              },
+              { 
+                number: "04", 
+                title: "Enjoy Your Time Back", 
+                desc: "Go back to your life while we make your space shine.", 
+                image: "/04 Enjoy Your Time Back.png"
+              },
             ].map((step, i) => (
               <div
                 key={i}
-                className="group relative p-6 rounded-2xl transition-all duration-300 hover:bg-white hover:shadow-xl hover:-translate-y-1"
+                className="group relative p-6 rounded-2xl transition-all duration-300 hover:bg-white hover:shadow-xl hover:-translate-y-1 flex flex-col"
               >
-                {/* <div className="text-5xl mb-6 grayscale group-hover:grayscale-0 transition-all duration-300 transform group-hover:scale-110 origin-center">
-                  {step.icon}
-                </div> */}
+                {/* Embedded Image Section Instead of Icon */}
+                <div className="w-full mb-6 overflow-hidden rounded-xl">
+                  <img 
+                    src={step.image} 
+                    alt={step.title}
+                    className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                </div>
+
                 <div className="text-4xl font-extrabold text-blue-900 mb-3 opacity-90 group-hover:opacity-100">
                   {step.number}
                 </div>

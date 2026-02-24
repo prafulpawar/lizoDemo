@@ -53,7 +53,7 @@ export default function Services() {
       icon: Home,
       iconUrl: "https://cdn-icons-png.freepik.com/512/4326/4326454.png?uid=R222621354&ga=GA1.1.1923233215.1763239242",
       image:
-        "https://plus.unsplash.com/premium_photo-1679920025550-75324e59680f?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "/E6.png",
       url: "/contact",
       includes: [
         "Dusting and wiping surfaces",
@@ -73,7 +73,7 @@ export default function Services() {
       icon: Sparkles,
       iconUrl: "https://cdn-icons-png.freepik.com/512/738/738981.png?uid=R222621354&ga=GA1.1.1923233215.1763239242",
       image:
-        "https://5.imimg.com/data5/IY/VT/WG/SELLER-92734525/bathroom-cleaning-1000x1000.jpg",
+        "/E1.png",
       url: "/contact",
       includes: [
 
@@ -93,7 +93,7 @@ export default function Services() {
       icon: Truck,
       iconUrl : "https://cdn-icons-png.freepik.com/512/3344/3344051.png?uid=R222621354&ga=GA1.1.1923233215.1763239242",
       image:
-        "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?q=80&w=1000&auto=format&fit=crop",
+        "/E7.png",
       url: "/contact",
       includes: [
         "Inside cabinets and drawers (empty units)",
@@ -112,7 +112,7 @@ export default function Services() {
       icon: Building2,
       iconUrl:"https://cdn-icons-png.freepik.com/512/14361/14361415.png?uid=R222621354&ga=GA1.1.1923233215.1763239242",
       image:
-        "https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=1000&auto=format&fit=crop",
+        "./E8.png",
       url: "/contact",
       includes: [
         "Daily, weekly, or bi-weekly service",
@@ -148,7 +148,7 @@ export default function Services() {
       icon: Hammer,
       iconUrl:"https://cdn-icons-png.freepik.com/512/1999/1999178.png?uid=R222621354&ga=GA1.1.1923233215.1763239242",
       image:
-        "https://reallycleanservices.com/wp-content/uploads/2025/02/diploma-1.webp",
+        "./E2.png",
       url: "/contact",
       includes: [
         "Dust removal ",
@@ -164,7 +164,7 @@ export default function Services() {
         "Beyond standard cleaning, we assist with seasonal transitions, real estate preparation, and organizing cluttered spaces like garages and closets.",
       icon: Calendar, // You may need to import this icon or choose another
       iconUrl:"https://cdn-icons-png.freepik.com/512/12627/12627318.png?uid=R222621354&ga=GA1.1.1923233215.1763239242",
-      image: "https://officepride.com/wp-content/uploads/2021/11/OP1014-Office-Pride-Blog_10Oct2021-Micro.jpg", // Replace with your specific image
+      image: "/E5.png", // Replace with your specific image
       url: "/contact",
       includes: [
         "Christmas tree teardown & holiday clean-up",
@@ -238,11 +238,14 @@ export default function Services() {
               >
                 {/* Image Area */}
                 <div className="relative h-56 overflow-hidden ">
+                  
                   <img
                     src={service.image}
                     alt={service.title}
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                   />
+
+                  
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-80 group-hover:opacity-70 transition-opacity" />
 
                   {/* Floating Icon */}
