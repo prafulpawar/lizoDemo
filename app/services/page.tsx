@@ -130,7 +130,7 @@ export default function Services() {
       icon: BedDouble,
       iconUrl:"https://cdn-icons-png.freepik.com/512/3343/3343865.png?uid=R222621354&ga=GA1.1.1923233215.1763239242",
       image:
-        "https://cdn.prod.website-files.com/66eae7c3f6bec634152a5d82/66fdad7178925f4d926262f9_Cleaning%20Company%20(2).webp",
+        "/E9.png",
       url: "/contact",
       includes: [
         "Full cleaning of all rooms",

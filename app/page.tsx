@@ -381,9 +381,9 @@ const transformations = [
               <div className="relative">
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-primary/10 rounded-3xl blur-3xl" />
                 <img
-                  src="/professional-cleaning-service-modern-clean.jpg"
+                  src="/professional-cleaning-service-modern-clean.png"
                   alt="Professional cleaning team working"
-                  className="relative rounded-2xl lg:w-[40%] xl:w-[45%] object-cover shadow-2xl ml-40"
+                  className="relative rounded-2xl lg:w-[60%] xl:w-[58%] object-cover shadow-2xl ml-40"
                 />
               </div>
             </div>

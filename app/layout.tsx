@@ -11,23 +11,23 @@ export const metadata: Metadata = {
   title: "Lizzo Cleaning | Professional Cleaning Services",
   description:
     "Professional residential and commercial cleaning services. Trusted cleaners, flexible scheduling, transparent pricing.",
-  generator: "v0.app",
+  generator: "cloudgenz",
   icons: {
     icon: [
       {
-        url: "/icon-light-32x32.png",
+        url: "/Logo-Navbar.jpeg",
         media: "(prefers-color-scheme: light)",
       },
       {
-        url: "/icon-dark-32x32.png",
+        url: "/Logo-Navbar.jpeg",
         media: "(prefers-color-scheme: dark)",
       },
       {
-        url: "/icon.svg",
+        url: "/Logo-Navbar.jpeg",
         type: "image/svg+xml",
       },
     ],
-    apple: "/apple-icon.png",
+    apple: "/Logo-Navbar.jpeg",
   },
 }
 
